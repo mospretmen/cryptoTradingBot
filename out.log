@@ -1,0 +1,1314 @@
+Nodejs Environment detected 
+server start...127.0.0.1:8080
+============================================================
+1/24/2019, 12:12:00 AM
+[1m[36mWaiting for trade... => TRXETH[39m[22m
+------------------------------------------------------------
+[41m________________________ Trend is DOWN ________________________[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00022577
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00022754
+Upper Limit @Sigma Lvl. 2 = 0.00022817
+Lower Limit @Sigma Lvl. 2 = 0.00022448
+Bollinger Bands Spread: [33m1.64 %[39m
+RSI: [33m45.16[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.23, -0.70, 0.49, -1.13 %[39m
+Last Volume: [33m2024[39m, Average Volume: [33m170017[39m
+------------------------------------------------------------
+
+[4mTRXETH Trade History Last 500 trades => [24m
+Count Buy Trades: 191 
+Count Sell Trades: 309 
+Total Qty Bought: 37616 
+Total Qty Sold: 40440 
+Weighted Buy Price: 0.00021632 
+Weighted Sell Price: 0.00021676 
+Total Profit/Loss: 0.0166 ETH
+Avg MKT_Maker Spread: [1m[31m0 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:06 AM
+[1m[36mWaiting for trade... => TRXETH[39m[22m
+------------------------------------------------------------
+[41m________________________ Trend is DOWN ________________________[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00022577
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00022754
+Upper Limit @Sigma Lvl. 2 = 0.00022817
+Lower Limit @Sigma Lvl. 2 = 0.00022448
+Bollinger Bands Spread: [33m1.64 %[39m
+RSI: [33m45.16[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.23, -0.70, 0.49, -1.13 %[39m
+Last Volume: [33m2024[39m, Average Volume: [33m170017[39m
+------------------------------------------------------------
+
+[4mTRXETH Trade History Last 500 trades => [24m
+Count Buy Trades: 191 
+Count Sell Trades: 309 
+Total Qty Bought: 37616 
+Total Qty Sold: 40440 
+Weighted Buy Price: 0.00021632 
+Weighted Sell Price: 0.00021676 
+Total Profit/Loss: 0.0166 ETH
+Avg MKT_Maker Spread: [1m[31m0 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:12 AM
+[1m[36mWaiting for trade... => TRXETH[39m[22m
+------------------------------------------------------------
+[41m________________________ Trend is DOWN ________________________[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00022577
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00022754
+Upper Limit @Sigma Lvl. 2 = 0.00022817
+Lower Limit @Sigma Lvl. 2 = 0.00022448
+Bollinger Bands Spread: [33m1.64 %[39m
+RSI: [33m45.16[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.23, -0.70, 0.49, -1.13 %[39m
+Last Volume: [33m2024[39m, Average Volume: [33m170017[39m
+------------------------------------------------------------
+
+[4mTRXETH Trade History Last 500 trades => [24m
+Count Buy Trades: 191 
+Count Sell Trades: 309 
+Total Qty Bought: 37616 
+Total Qty Sold: 40440 
+Weighted Buy Price: 0.00021632 
+Weighted Sell Price: 0.00021676 
+Total Profit/Loss: 0.0166 ETH
+Avg MKT_Maker Spread: [1m[31m0 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:18 AM
+[1m[36mWaiting for trade... => TRXETH[39m[22m
+------------------------------------------------------------
+[41m________________________ Trend is DOWN ________________________[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00022577
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00022754
+Upper Limit @Sigma Lvl. 2 = 0.00022817
+Lower Limit @Sigma Lvl. 2 = 0.00022448
+Bollinger Bands Spread: [33m1.64 %[39m
+RSI: [33m45.16[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.23, -0.70, 0.49, -1.13 %[39m
+Last Volume: [33m2024[39m, Average Volume: [33m170017[39m
+------------------------------------------------------------
+
+[4mTRXETH Trade History Last 500 trades => [24m
+Count Buy Trades: 191 
+Count Sell Trades: 309 
+Total Qty Bought: 37616 
+Total Qty Sold: 40440 
+Weighted Buy Price: 0.00021632 
+Weighted Sell Price: 0.00021676 
+Total Profit/Loss: 0.0166 ETH
+Avg MKT_Maker Spread: [1m[31m0 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:24 AM
+[1m[36mWaiting for trade... => TRXETH[39m[22m
+------------------------------------------------------------
+[41m________________________ Trend is DOWN ________________________[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00022577
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00022754
+Upper Limit @Sigma Lvl. 2 = 0.00022817
+Lower Limit @Sigma Lvl. 2 = 0.00022448
+Bollinger Bands Spread: [33m1.64 %[39m
+RSI: [33m45.16[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.23, -0.70, 0.49, -1.13 %[39m
+Last Volume: [33m2024[39m, Average Volume: [33m170017[39m
+------------------------------------------------------------
+
+[4mTRXETH Trade History Last 500 trades => [24m
+Count Buy Trades: 191 
+Count Sell Trades: 309 
+Total Qty Bought: 37616 
+Total Qty Sold: 40440 
+Weighted Buy Price: 0.00021632 
+Weighted Sell Price: 0.00021676 
+Total Profit/Loss: 0.0166 ETH
+Avg MKT_Maker Spread: [1m[31m0 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:30 AM
+[1m[36mWaiting for trade... => TRXETH[39m[22m
+------------------------------------------------------------
+[41m________________________ Trend is DOWN ________________________[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00022577
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00022754
+Upper Limit @Sigma Lvl. 2 = 0.00022817
+Lower Limit @Sigma Lvl. 2 = 0.00022448
+Bollinger Bands Spread: [33m1.64 %[39m
+RSI: [33m45.16[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.23, -0.70, 0.49, -1.13 %[39m
+Last Volume: [33m2024[39m, Average Volume: [33m170017[39m
+------------------------------------------------------------
+
+[4mTRXETH Trade History Last 500 trades => [24m
+Count Buy Trades: 191 
+Count Sell Trades: 309 
+Total Qty Bought: 37616 
+Total Qty Sold: 40440 
+Weighted Buy Price: 0.00021632 
+Weighted Sell Price: 0.00021676 
+Total Profit/Loss: 0.0166 ETH
+Avg MKT_Maker Spread: [1m[31m0 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:36 AM
+[1m[36mWaiting for trade... => TRXETH[39m[22m
+------------------------------------------------------------
+[41m________________________ Trend is DOWN ________________________[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00022577
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00022754
+Upper Limit @Sigma Lvl. 2 = 0.00022817
+Lower Limit @Sigma Lvl. 2 = 0.00022448
+Bollinger Bands Spread: [33m1.64 %[39m
+RSI: [33m45.16[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.23, -0.70, 0.49, -1.13 %[39m
+Last Volume: [33m2069[39m, Average Volume: [33m170018[39m
+------------------------------------------------------------
+
+[4mTRXETH Trade History Last 500 trades => [24m
+Count Buy Trades: 191 
+Count Sell Trades: 309 
+Total Qty Bought: 37616 
+Total Qty Sold: 40440 
+Weighted Buy Price: 0.00021632 
+Weighted Sell Price: 0.00021676 
+Total Profit/Loss: 0.0166 ETH
+Avg MKT_Maker Spread: [1m[31m0 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:42 AM
+[1m[36mWaiting for trade... => TRXETH[39m[22m
+------------------------------------------------------------
+[41m________________________ Trend is DOWN ________________________[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00022577
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00022754
+Upper Limit @Sigma Lvl. 2 = 0.00022817
+Lower Limit @Sigma Lvl. 2 = 0.00022448
+Bollinger Bands Spread: [33m1.64 %[39m
+RSI: [33m45.16[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.23, -0.70, 0.49, -1.13 %[39m
+Last Volume: [33m2069[39m, Average Volume: [33m170018[39m
+------------------------------------------------------------
+
+[4mTRXETH Trade History Last 500 trades => [24m
+Count Buy Trades: 191 
+Count Sell Trades: 309 
+Total Qty Bought: 37616 
+Total Qty Sold: 40440 
+Weighted Buy Price: 0.00021632 
+Weighted Sell Price: 0.00021676 
+Total Profit/Loss: 0.0166 ETH
+Avg MKT_Maker Spread: [1m[31m0 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:48 AM
+[1m[36mWaiting for trade... => TRXETH[39m[22m
+------------------------------------------------------------
+[41m________________________ Trend is DOWN ________________________[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00022577
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00022754
+Upper Limit @Sigma Lvl. 2 = 0.00022817
+Lower Limit @Sigma Lvl. 2 = 0.00022448
+Bollinger Bands Spread: [33m1.64 %[39m
+RSI: [33m45.16[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.23, -0.70, 0.49, -1.13 %[39m
+Last Volume: [33m2069[39m, Average Volume: [33m170018[39m
+------------------------------------------------------------
+
+[4mTRXETH Trade History Last 500 trades => [24m
+Count Buy Trades: 191 
+Count Sell Trades: 309 
+Total Qty Bought: 37616 
+Total Qty Sold: 40440 
+Weighted Buy Price: 0.00021632 
+Weighted Sell Price: 0.00021676 
+Total Profit/Loss: 0.0166 ETH
+Avg MKT_Maker Spread: [1m[31m0 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:54 AM
+[1m[36mWaiting for trade... => TRXETH[39m[22m
+------------------------------------------------------------
+[41m________________________ Trend is DOWN ________________________[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00022577
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00022754
+Upper Limit @Sigma Lvl. 2 = 0.00022817
+Lower Limit @Sigma Lvl. 2 = 0.00022448
+Bollinger Bands Spread: [33m1.64 %[39m
+RSI: [33m45.16[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.23, -0.70, 0.49, -1.13 %[39m
+Last Volume: [33m2069[39m, Average Volume: [33m170018[39m
+------------------------------------------------------------
+
+[4mTRXETH Trade History Last 500 trades => [24m
+Count Buy Trades: 191 
+Count Sell Trades: 309 
+Total Qty Bought: 37616 
+Total Qty Sold: 40440 
+Weighted Buy Price: 0.00021632 
+Weighted Sell Price: 0.00021676 
+Total Profit/Loss: 0.0166 ETH
+Avg MKT_Maker Spread: [1m[31m0 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+Qty Sold: 428 
+Weighted Buy Price: 0.01946608 
+Weighted Sell Price: 0.01959429 
+Total Profit/Loss: 0.0548 ETH
+Avg MKT_Maker Spread: [1m[32m0.46 %[39m[22m
+------------------------------------------------------------
+
+============================================================
+1/24/2019, 12:12:01 AM
+[1m[36mWaiting for trade... => XRPETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00270010
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00269511
+Upper Limit @Sigma Lvl. 2 = 0.00271810
+Lower Limit @Sigma Lvl. 2 = 0.00269356
+Bollinger Bands Spread: [33m0.91 %[39m
+RSI: [33m47.56[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.37, -0.22, 0.48, 0.23 %[39m
+Last Volume: [33m433[39m, Average Volume: [33m37260[39m
+------------------------------------------------------------
+
+[4mXRPETH Trade History Last 500 trades => [24m
+Count Buy Trades: 327 
+Count Sell Trades: 173 
+Total Qty Bought: 2962 
+Total Qty Sold: 2819 
+Weighted Buy Price: 0.00267348 
+Weighted Sell Price: 0.00267759 
+Total Profit/Loss: 0.0116 ETH
+Avg MKT_Maker Spread: [1m[31m-0.05 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:02 AM
+[1m[36mWaiting for trade... => EOSETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.020771
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.020705
+Upper Limit @Sigma Lvl. 2 = 0.020791
+Lower Limit @Sigma Lvl. 2 = 0.020660
+Bollinger Bands Spread: [33m0.63 %[39m
+RSI: [33m55.16[39m
+ROC 5,10,20,40,99 period: [33m0.16, 0.39, 0.09, -0.33, 0.93 %[39m
+Last Volume: [33m104.61[39m, Average Volume: [33m658[39m
+------------------------------------------------------------
+
+[4mEOSETH Trade History Last 500 trades => [24m
+Count Buy Trades: 310 
+Count Sell Trades: 190 
+Total Qty Bought: 430 
+Total Qty Sold: 428 
+Weighted Buy Price: 0.01946608 
+Weighted Sell Price: 0.01959429 
+Total Profit/Loss: 0.0548 ETH
+Avg MKT_Maker Spread: [1m[32m0.46 %[39m[22m
+------------------------------------------------------------
+
+============================================================
+1/24/2019, 12:12:04 AM
+[1m[36mWaiting for trade... => XRPETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00270010
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00269511
+Upper Limit @Sigma Lvl. 2 = 0.00271810
+Lower Limit @Sigma Lvl. 2 = 0.00269356
+Bollinger Bands Spread: [33m0.91 %[39m
+RSI: [33m47.56[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.37, -0.22, 0.48, 0.23 %[39m
+Last Volume: [33m433[39m, Average Volume: [33m37260[39m
+------------------------------------------------------------
+
+[4mXRPETH Trade History Last 500 trades => [24m
+Count Buy Trades: 327 
+Count Sell Trades: 173 
+Total Qty Bought: 2962 
+Total Qty Sold: 2819 
+Weighted Buy Price: 0.00267348 
+Weighted Sell Price: 0.00267759 
+Total Profit/Loss: 0.0116 ETH
+Avg MKT_Maker Spread: [1m[31m-0.05 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:09 AM
+[1m[36mWaiting for trade... => EOSETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.020771
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.020705
+Upper Limit @Sigma Lvl. 2 = 0.020791
+Lower Limit @Sigma Lvl. 2 = 0.020660
+Bollinger Bands Spread: [33m0.63 %[39m
+RSI: [33m55.16[39m
+ROC 5,10,20,40,99 period: [33m0.16, 0.39, 0.09, -0.33, 0.93 %[39m
+Last Volume: [33m104.61[39m, Average Volume: [33m658[39m
+------------------------------------------------------------
+
+[4mEOSETH Trade History Last 500 trades => [24m
+Count Buy Trades: 310 
+Count Sell Trades: 190 
+Total Qty Bought: 430 
+Total Qty Sold: 428 
+Weighted Buy Price: 0.01946608 
+Weighted Sell Price: 0.01959429 
+Total Profit/Loss: 0.0548 ETH
+Avg MKT_Maker Spread: [1m[32m0.46 %[39m[22m
+------------------------------------------------------------
+
+============================================================
+1/24/2019, 12:12:12 AM
+[1m[36mWaiting for trade... => XRPETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00270010
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00269511
+Upper Limit @Sigma Lvl. 2 = 0.00271810
+Lower Limit @Sigma Lvl. 2 = 0.00269356
+Bollinger Bands Spread: [33m0.91 %[39m
+RSI: [33m47.56[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.37, -0.22, 0.48, 0.23 %[39m
+Last Volume: [33m433[39m, Average Volume: [33m37260[39m
+------------------------------------------------------------
+
+[4mXRPETH Trade History Last 500 trades => [24m
+Count Buy Trades: 327 
+Count Sell Trades: 173 
+Total Qty Bought: 2962 
+Total Qty Sold: 2819 
+Weighted Buy Price: 0.00267348 
+Weighted Sell Price: 0.00267759 
+Total Profit/Loss: 0.0116 ETH
+Avg MKT_Maker Spread: [1m[31m-0.05 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:18 AM
+[1m[36mWaiting for trade... => EOSETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.020771
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.020705
+Upper Limit @Sigma Lvl. 2 = 0.020791
+Lower Limit @Sigma Lvl. 2 = 0.020660
+Bollinger Bands Spread: [33m0.63 %[39m
+RSI: [33m55.16[39m
+ROC 5,10,20,40,99 period: [33m0.16, 0.39, 0.09, -0.33, 0.93 %[39m
+Last Volume: [33m104.61[39m, Average Volume: [33m658[39m
+------------------------------------------------------------
+
+[4mEOSETH Trade History Last 500 trades => [24m
+Count Buy Trades: 310 
+Count Sell Trades: 190 
+Total Qty Bought: 430 
+Total Qty Sold: 428 
+Weighted Buy Price: 0.01946608 
+Weighted Sell Price: 0.01959429 
+Total Profit/Loss: 0.0548 ETH
+Avg MKT_Maker Spread: [1m[32m0.46 %[39m[22m
+------------------------------------------------------------
+
+============================================================
+1/24/2019, 12:12:21 AM
+[1m[36mWaiting for trade... => XRPETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00270010
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00269511
+Upper Limit @Sigma Lvl. 2 = 0.00271810
+Lower Limit @Sigma Lvl. 2 = 0.00269356
+Bollinger Bands Spread: [33m0.91 %[39m
+RSI: [33m47.56[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.37, -0.22, 0.48, 0.23 %[39m
+Last Volume: [33m433[39m, Average Volume: [33m37260[39m
+------------------------------------------------------------
+
+[4mXRPETH Trade History Last 500 trades => [24m
+Count Buy Trades: 327 
+Count Sell Trades: 173 
+Total Qty Bought: 2962 
+Total Qty Sold: 2819 
+Weighted Buy Price: 0.00267348 
+Weighted Sell Price: 0.00267759 
+Total Profit/Loss: 0.0116 ETH
+Avg MKT_Maker Spread: [1m[31m-0.05 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:23 AM
+[1m[36mWaiting for trade... => EOSETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.020771
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.020705
+Upper Limit @Sigma Lvl. 2 = 0.020791
+Lower Limit @Sigma Lvl. 2 = 0.020660
+Bollinger Bands Spread: [33m0.63 %[39m
+RSI: [33m55.16[39m
+ROC 5,10,20,40,99 period: [33m0.16, 0.39, 0.09, -0.33, 0.93 %[39m
+Last Volume: [33m104.61[39m, Average Volume: [33m658[39m
+------------------------------------------------------------
+
+[4mEOSETH Trade History Last 500 trades => [24m
+Count Buy Trades: 310 
+Count Sell Trades: 190 
+Total Qty Bought: 430 
+Total Qty Sold: 428 
+Weighted Buy Price: 0.01946608 
+Weighted Sell Price: 0.01959429 
+Total Profit/Loss: 0.0548 ETH
+Avg MKT_Maker Spread: [1m[32m0.46 %[39m[22m
+------------------------------------------------------------
+
+============================================================
+1/24/2019, 12:12:28 AM
+[1m[36mWaiting for trade... => XRPETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00270010
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00269511
+Upper Limit @Sigma Lvl. 2 = 0.00271810
+Lower Limit @Sigma Lvl. 2 = 0.00269356
+Bollinger Bands Spread: [33m0.91 %[39m
+RSI: [33m47.56[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.37, -0.22, 0.48, 0.23 %[39m
+Last Volume: [33m433[39m, Average Volume: [33m37260[39m
+------------------------------------------------------------
+
+[4mXRPETH Trade History Last 500 trades => [24m
+Count Buy Trades: 327 
+Count Sell Trades: 173 
+Total Qty Bought: 2962 
+Total Qty Sold: 2819 
+Weighted Buy Price: 0.00267348 
+Weighted Sell Price: 0.00267759 
+Total Profit/Loss: 0.0116 ETH
+Avg MKT_Maker Spread: [1m[31m-0.05 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:30 AM
+[1m[36mWaiting for trade... => EOSETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.020784
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.020706
+Upper Limit @Sigma Lvl. 2 = 0.020793
+Lower Limit @Sigma Lvl. 2 = 0.020658
+Bollinger Bands Spread: [33m0.65 %[39m
+RSI: [33m57.82[39m
+ROC 5,10,20,40,99 period: [33m0.22, 0.45, 0.15, -0.26, 1.00 %[39m
+Last Volume: [33m267.04[39m, Average Volume: [33m659[39m
+------------------------------------------------------------
+
+[4mEOSETH Trade History Last 500 trades => [24m
+Count Buy Trades: 310 
+Count Sell Trades: 190 
+Total Qty Bought: 430 
+Total Qty Sold: 428 
+Weighted Buy Price: 0.01946608 
+Weighted Sell Price: 0.01959429 
+Total Profit/Loss: 0.0548 ETH
+Avg MKT_Maker Spread: [1m[32m0.46 %[39m[22m
+------------------------------------------------------------
+
+============================================================
+1/24/2019, 12:12:36 AM
+[1m[36mWaiting for trade... => XRPETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00270010
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00269511
+Upper Limit @Sigma Lvl. 2 = 0.00271810
+Lower Limit @Sigma Lvl. 2 = 0.00269356
+Bollinger Bands Spread: [33m0.91 %[39m
+RSI: [33m47.56[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.37, -0.22, 0.48, 0.23 %[39m
+Last Volume: [33m433[39m, Average Volume: [33m37260[39m
+------------------------------------------------------------
+
+[4mXRPETH Trade History Last 500 trades => [24m
+Count Buy Trades: 327 
+Count Sell Trades: 173 
+Total Qty Bought: 2962 
+Total Qty Sold: 2819 
+Weighted Buy Price: 0.00267348 
+Weighted Sell Price: 0.00267759 
+Total Profit/Loss: 0.0116 ETH
+Avg MKT_Maker Spread: [1m[31m-0.05 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:37 AM
+[1m[36mWaiting for trade... => EOSETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.020787
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.020706
+Upper Limit @Sigma Lvl. 2 = 0.020794
+Lower Limit @Sigma Lvl. 2 = 0.020658
+Bollinger Bands Spread: [33m0.66 %[39m
+RSI: [33m58.47[39m
+ROC 5,10,20,40,99 period: [33m0.24, 0.46, 0.17, -0.25, 1.01 %[39m
+Last Volume: [33m268.27[39m, Average Volume: [33m659[39m
+------------------------------------------------------------
+
+[4mEOSETH Trade History Last 500 trades => [24m
+Count Buy Trades: 310 
+Count Sell Trades: 190 
+Total Qty Bought: 430 
+Total Qty Sold: 428 
+Weighted Buy Price: 0.01946608 
+Weighted Sell Price: 0.01959429 
+Total Profit/Loss: 0.0548 ETH
+Avg MKT_Maker Spread: [1m[32m0.46 %[39m[22m
+------------------------------------------------------------
+
+============================================================
+1/24/2019, 12:12:45 AM
+[1m[36mWaiting for trade... => EOSETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.020787
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.020706
+Upper Limit @Sigma Lvl. 2 = 0.020794
+Lower Limit @Sigma Lvl. 2 = 0.020658
+Bollinger Bands Spread: [33m0.66 %[39m
+RSI: [33m58.47[39m
+ROC 5,10,20,40,99 period: [33m0.24, 0.46, 0.17, -0.25, 1.01 %[39m
+Last Volume: [33m268.27[39m, Average Volume: [33m659[39m
+------------------------------------------------------------
+
+[4mEOSETH Trade History Last 500 trades => [24m
+Count Buy Trades: 310 
+Count Sell Trades: 190 
+Total Qty Bought: 430 
+Total Qty Sold: 428 
+Weighted Buy Price: 0.01946608 
+Weighted Sell Price: 0.01959429 
+Total Profit/Loss: 0.0548 ETH
+Avg MKT_Maker Spread: [1m[32m0.46 %[39m[22m
+------------------------------------------------------------
+
+============================================================
+1/24/2019, 12:12:45 AM
+[1m[36mWaiting for trade... => XRPETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00270010
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00269511
+Upper Limit @Sigma Lvl. 2 = 0.00271810
+Lower Limit @Sigma Lvl. 2 = 0.00269356
+Bollinger Bands Spread: [33m0.91 %[39m
+RSI: [33m47.56[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.37, -0.22, 0.48, 0.23 %[39m
+Last Volume: [33m433[39m, Average Volume: [33m37260[39m
+------------------------------------------------------------
+
+[4mXRPETH Trade History Last 500 trades => [24m
+Count Buy Trades: 327 
+Count Sell Trades: 173 
+Total Qty Bought: 2962 
+Total Qty Sold: 2819 
+Weighted Buy Price: 0.00267348 
+Weighted Sell Price: 0.00267759 
+Total Profit/Loss: 0.0116 ETH
+Avg MKT_Maker Spread: [1m[31m-0.05 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:51 AM
+[1m[36mWaiting for trade... => EOSETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: [32m0.02079900[39m
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.020706
+Upper Limit @Sigma Lvl. 2 = 0.020797
+Lower Limit @Sigma Lvl. 2 = 0.020656
+Bollinger Bands Spread: [33m0.68 %[39m
+RSI: [33m60.26[39m
+ROC 5,10,20,40,99 period: [33m0.29, 0.52, 0.23, -0.19, 1.07 %[39m
+Last Volume: [33m282.13[39m, Average Volume: [33m660[39m
+------------------------------------------------------------
+
+[4mEOSETH Trade History Last 500 trades => [24m
+Count Buy Trades: 310 
+Count Sell Trades: 190 
+Total Qty Bought: 430 
+Total Qty Sold: 428 
+Weighted Buy Price: 0.01946608 
+Weighted Sell Price: 0.01959429 
+Total Profit/Loss: 0.0548 ETH
+Avg MKT_Maker Spread: [1m[32m0.46 %[39m[22m
+------------------------------------------------------------
+
+============================================================
+1/24/2019, 12:12:52 AM
+[1m[36mWaiting for trade... => XRPETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: 0.00270010
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.00269511
+Upper Limit @Sigma Lvl. 2 = 0.00271810
+Lower Limit @Sigma Lvl. 2 = 0.00269356
+Bollinger Bands Spread: [33m0.91 %[39m
+RSI: [33m47.56[39m
+ROC 5,10,20,40,99 period: [33m-0.06, -0.37, -0.22, 0.48, 0.23 %[39m
+Last Volume: [33m433[39m, Average Volume: [33m37260[39m
+------------------------------------------------------------
+
+[4mXRPETH Trade History Last 500 trades => [24m
+Count Buy Trades: 327 
+Count Sell Trades: 173 
+Total Qty Bought: 2962 
+Total Qty Sold: 2819 
+Weighted Buy Price: 0.00267348 
+Weighted Sell Price: 0.00267759 
+Total Profit/Loss: 0.0116 ETH
+Avg MKT_Maker Spread: [1m[31m-0.05 %[39m[22m
+------------------------------------------------------------
+
+[44m[4m------------------------ACCOUNT DATA------------------------[24m[49m
+XRP balance: 270 or 0.73 ETH, 6 % On Trade
+TUSD balance: 0 or 0.00 ETH, 0 % On Trade
+BNB balance: 2 or 0.09 ETH, 1 % On Trade
+EOS balance: 8 or 0.16 ETH, 1 % On Trade
+TRX balance: 2573 or 0.58 ETH, 5 % On Trade
+ETH balance: 11.04
+Total ETH balance: 12.60
+Total ETH Invested: 13.1
+Total ETH Profit Or Loss: -0.50
+[1m[40mROI Since Inception ( 2 months ago ): [31m-3.82 %[39m[49m[22m
+------------------------------------------------------------
+
+openOrders() [ { symbol: 'TRXETH',
+    orderId: 60414185,
+    clientOrderId: 'eLdXgSnmSD9nu9rghRikeN',
+    price: '0.00022474',
+    origQty: '180.00000000',
+    executedQty: '0.00000000',
+    cummulativeQuoteQty: '0.00000000',
+    status: 'NEW',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'BUY',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1548286505037,
+    updateTime: 1548286505037,
+    isWorking: true } ]
+============================================================
+1/24/2019, 12:12:58 AM
+[1m[36mWaiting for trade... => EOSETH[39m[22m
+------------------------------------------------------------
+[42m^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^[49m
+
+[4mPrice Data =>[24m
+Last Close: [32m0.02079900[39m
+Candlestick Pattern Bullish?: [32mtrue[39m
+SMA 100 Period: 0.020706
+Upper Limit @Sigma Lvl. 2 = 0.020797
+Lower Limit @Sigma Lvl. 2 = 0.020656
+Bollinger Bands Spread: [33m0.68 %[39m
+RSI: [33m60.26[39m
+ROC 5,10,20,40,99 period: [33m0.29, 0.52, 0.23, -0.19, 1.07 %[39m
+Last Volume: [33m282.13[39m, Average Volume: [33m660[39m
+------------------------------------------------------------
+
+[4mEOSETH Trade History Last 500 trades => [24m
+Count Buy Trades: 310 
+Count Sell Trades: 190 
+Total Qty Bought: 430 
+Total Qty Sold: 428 
+Weighted Buy Price: 0.01946608 
+Weighted Sell Price: 0.01959429 
+Total Profit/Loss: 0.0548 ETH
+Avg MKT_Maker Spread: [1m[32m0.46 %[39m[22m
+------------------------------------------------------------
+

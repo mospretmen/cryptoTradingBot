@@ -1,0 +1,542 @@
+[
+ {
+  "date": "11/9/2018",
+  "totalBalance": 0,
+  "cashFlow": 3.77,
+  "totalBalancePlusCashFLow": 3.77
+ },
+ {
+  "date": "11/10/2018",
+  "totalBalance": 3.79,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.79
+ },
+ {
+  "date": "11/11/2018",
+  "totalBalance": 3.81,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.81
+ },
+ {
+  "date": "11/12/2018",
+  "totalBalance": 3.83,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.83
+ },
+ {
+  "date": "11/13/2018",
+  "totalBalance": 3.85,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.85
+ },
+ {
+  "date": "11/14/2018",
+  "totalBalance": 3.84,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.84
+ },
+ {
+  "date": "11/15/2018",
+  "totalBalance": 3.87,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.87
+ },
+ {
+  "date": "11/16/2018",
+  "totalBalance": 3.87,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.87
+ },
+ {
+  "date": "11/17/18",
+  "totalBalance": 3.89,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.89
+ },
+ {
+  "date": "11/18/2018",
+  "totalBalance": 3.88,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.88
+ },
+ {
+  "date": "11/19/2018",
+  "totalBalance": 3.91,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.91
+ },
+ {
+  "date": "11/20/18",
+  "totalBalance": 3.91,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.91
+ },
+ {
+  "date": "11/21/2018",
+  "totalBalance": 3.89,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.89
+ },
+ {
+  "date": "11/22/2018",
+  "totalBalance": 3.92,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.92
+ },
+ {
+  "date": "11/23/2018",
+  "totalBalance": 3.93,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.93
+ },
+ {
+  "date": "11/24/2018",
+  "totalBalance": 3.94,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.94
+ },
+ {
+  "date": "11/25/18",
+  "totalBalance": 3.96,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.96
+ },
+ {
+  "date": "11/26/2018",
+  "totalBalance": 3.97,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.97
+ },
+ {
+  "date": "11/27/2018",
+  "totalBalance": 3.98,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.98
+ },
+ {
+  "date": "11/28/2018",
+  "totalBalance": 3.95,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.95
+ },
+ {
+  "date": "11/29/2018",
+  "totalBalance": 3.98,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.98
+ },
+ {
+  "date": "11/30/18",
+  "totalBalance": 3.99,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 3.99
+ },
+ {
+  "date": "12/1/2018",
+  "totalBalance": 4.05,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 4.05
+ },
+ {
+  "date": "12/2/2018",
+  "totalBalance": 4.06,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 4.06
+ },
+ {
+  "date": "12/3/2018",
+  "totalBalance": 4.08,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 4.08
+ },
+ {
+  "date": "12/4/2018",
+  "totalBalance": 4.11,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 4.11
+ },
+ {
+  "date": "12/5/2018",
+  "totalBalance": 4.15,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 4.15
+ },
+ {
+  "date": "12/6/2018",
+  "totalBalance": 4.12,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 4.12
+ },
+ {
+  "date": "12/7/2018",
+  "totalBalance": 4.16,
+  "cashFlow": 2.14,
+  "totalBalancePlusCashFLow": 6.3
+ },
+ {
+  "date": "12/8/2018",
+  "totalBalance": 6.41,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 6.41
+ },
+ {
+  "date": "12/9/2018",
+  "totalBalance": 6.47,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 6.47
+ },
+ {
+  "date": "12/10/2018",
+  "totalBalance": 6.54,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 6.54
+ },
+ {
+  "date": "12/11/2018",
+  "totalBalance": 6.66,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 6.66
+ },
+ {
+  "date": "12/12/2018",
+  "totalBalance": 6.79,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 6.79
+ },
+ {
+  "date": "12/13/2018",
+  "totalBalance": 6.79,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 6.79
+ },
+ {
+  "date": "12/14/2018",
+  "totalBalance": 6.81,
+  "cashFlow": 6.19,
+  "totalBalancePlusCashFLow": 13
+ },
+ {
+  "date": "12/15/2018",
+  "totalBalance": 13,
+  "cashFlow": 0,
+  "totalBalancePlusCashFLow": 13
+ },
+ {
+  "date": "12/16/2018",
+  "cashFlow": 0,
+  "totalBalance": 13.16,
+  "totalBalancePlusCashFLow": 13.16
+ },
+ {
+  "date": "12/17/2018",
+  "cashFlow": 0,
+  "totalBalance": 13.18,
+  "totalBalancePlusCashFLow": 13.18
+ },
+ {
+  "date": "12/18/2018",
+  "cashFlow": 0,
+  "totalBalance": 13.03,
+  "totalBalancePlusCashFLow": 13.03
+ },
+ {
+  "date": "12/19/2018",
+  "cashFlow": 0,
+  "totalBalance": 12.92,
+  "totalBalancePlusCashFLow": 12.92
+ },
+ {
+  "date": "12/20/2018",
+  "cashFlow": 0,
+  "totalBalance": 12.85,
+  "totalBalancePlusCashFLow": 12.85
+ },
+ {
+  "date": "12/21/2018",
+  "cashFlow": 1,
+  "totalBalance": 12.87,
+  "totalBalancePlusCashFLow": 13.87
+ },
+ {
+  "date": "12/22/2018",
+  "cashFlow": 0,
+  "totalBalance": 13.92,
+  "totalBalancePlusCashFLow": 13.92
+ },
+ {
+  "date": "12/23/2018",
+  "cashFlow": 0,
+  "totalBalance": 13.71,
+  "totalBalancePlusCashFLow": 13.71
+ },
+ {
+  "date": "12/24/2018",
+  "cashFlow": 0,
+  "totalBalance": 13.06,
+  "totalBalancePlusCashFLow": 13.06
+ },
+ {
+  "date": "12/25/2018",
+  "cashFlow": 0,
+  "totalBalance": 12.72,
+  "totalBalancePlusCashFLow": 12.72
+ },
+ {
+  "date": "12/26/2018",
+  "cashFlow": 0,
+  "totalBalance": 12.76,
+  "totalBalancePlusCashFLow": 12.76
+ },
+ {
+  "date": "12/27/2018",
+  "cashFlow": 0,
+  "totalBalance": 12.81,
+  "totalBalancePlusCashFLow": 12.81
+ },
+ {
+  "date": "12/28/2018",
+  "cashFlow": 0,
+  "totalBalance": 12.88,
+  "totalBalancePlusCashFLow": 12.88
+ },
+ {
+  "date": "12/29/2018",
+  "cashFlow": 0,
+  "totalBalance": 12.11,
+  "totalBalancePlusCashFLow": 12.11
+ },
+ {
+  "date": "12/30/2018",
+  "cashFlow": 0,
+  "totalBalance": 12,
+  "totalBalancePlusCashFLow": 12
+ },
+ {
+  "date": "12/31/2018",
+  "cashFlow": 0,
+  "totalBalance": 12.1,
+  "totalBalancePlusCashFLow": 12.1
+ },
+ {
+  "date": "01/01/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.15,
+  "totalBalancePlusCashFLow": 12.15
+ },
+ {
+  "date": "01/02/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.16,
+  "totalBalancePlusCashFLow": 12.16
+ },
+ {
+  "date": "01/03/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.05,
+  "totalBalancePlusCashFLow": 12.05
+ },
+ {
+  "date": "01/04/2019",
+  "cashFlow": 0,
+  "totalBalance": 12,
+  "totalBalancePlusCashFLow": 12
+ },
+ {
+  "date": "01/05/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.08,
+  "totalBalancePlusCashFLow": 12.08
+ },
+ {
+  "date": "01/06/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.12,
+  "totalBalancePlusCashFLow": 12.12
+ },
+ {
+  "date": "01/07/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.16,
+  "totalBalancePlusCashFLow": 12.16
+ },
+ {
+  "date": "01/08/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.11,
+  "totalBalancePlusCashFLow": 12.11
+ },
+ {
+  "date": "01/09/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.17,
+  "totalBalancePlusCashFLow": 12.17
+ },
+ {
+  "date": "01/10/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.2,
+  "totalBalancePlusCashFLow": 12.2
+ },
+ {
+  "date": "01/11/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.18,
+  "totalBalancePlusCashFLow": 12.18
+ },
+ {
+  "date": "01/12/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.23,
+  "totalBalancePlusCashFLow": 12.23
+ },
+ {
+  "date": "01/13/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.27,
+  "totalBalancePlusCashFLow": 12.27
+ },
+ {
+  "date": "01/14/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.35,
+  "totalBalancePlusCashFLow": 12.35
+ },
+ {
+  "date": "01/15/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.3,
+  "totalBalancePlusCashFLow": 12.3
+ },
+ {
+  "date": "01/16/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.52,
+  "totalBalancePlusCashFLow": 12.52
+ },
+ {
+  "date": "01/17/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.48,
+  "totalBalancePlusCashFLow": 12.48
+ },
+ {
+  "date": "01/18/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.49,
+  "totalBalancePlusCashFLow": 12.49
+ },
+ {
+  "date": "01/19/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.53,
+  "totalBalancePlusCashFLow": 12.53
+ },
+ {
+  "date": "01/20/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.5,
+  "totalBalancePlusCashFLow": 12.5
+ },
+ {
+  "date": "01/21/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.51,
+  "totalBalancePlusCashFLow": 12.51
+ },
+ {
+  "date": "01/22/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.55,
+  "totalBalancePlusCashFLow": 12.55
+ },
+ {
+  "date": "01/23/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.56,
+  "totalBalancePlusCashFLow": 12.56
+ },
+ {
+  "date": "01/24/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.6,
+  "totalBalancePlusCashFLow": 12.6
+ },
+ {
+  "date": "01/25/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.61,
+  "totalBalancePlusCashFLow": 12.61
+ },
+ {
+  "date": "01/26/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.66,
+  "totalBalancePlusCashFLow": 12.66
+ },
+ {
+  "date": "01/27/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.58,
+  "totalBalancePlusCashFLow": 12.58
+ },
+ {
+  "date": "01/28/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.76,
+  "totalBalancePlusCashFLow": 12.76
+ },
+ {
+  "date": "01/29/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.78,
+  "totalBalancePlusCashFLow": 12.78
+ },
+ {
+  "date": "01/30/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.9,
+  "totalBalancePlusCashFLow": 12.9
+ },
+ {
+  "date": "01/31/2019",
+  "cashFlow": 0,
+  "totalBalance": 13.11,
+  "totalBalancePlusCashFLow": 13.11
+ },
+ {
+  "date": "02/01/2019",
+  "cashFlow": 0,
+  "totalBalance": 13.06,
+  "totalBalancePlusCashFLow": 13.06
+ },
+ {
+  "date": "02/02/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.98,
+  "totalBalancePlusCashFLow": 12.98
+ },
+ {
+  "date": "02/03/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.8,
+  "totalBalancePlusCashFLow": 12.8
+ },
+ {
+  "date": "02/04/2019",
+  "cashFlow": 0,
+  "totalBalance": 12.91,
+  "totalBalancePlusCashFLow": 12.91
+ },
+ {
+  "date": "02/05/2019",
+  "cashFlow": 0,
+  "totalBalance": 13.19,
+  "totalBalancePlusCashFLow": 13.19
+ },
+ {
+  "date": "02/06/2019",
+  "cashFlow": 0,
+  "totalBalance": 13.23,
+  "totalBalancePlusCashFLow": 13.23
+ }
+]
