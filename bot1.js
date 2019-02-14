@@ -114,7 +114,7 @@ setInterval(function(){
       var lastVolume = arrayVolume[arrayVolume.length -1];
       var averageVolume = math.mean(arrayVolume);
       
-      var qtyTrade1 = 200;
+      var qtyTrade1 = 150;
       
       
       (async function data() {

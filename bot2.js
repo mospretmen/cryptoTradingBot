@@ -127,7 +127,7 @@ setInterval(function(){
             fs.writeFileSync('./data/XRP/XRPBollingerBandsSpreadHistory.json', JSON.stringify(bollingerBandsHistory,null, " "));
         }
       
-      var qtyTrade1 = 15;
+      var qtyTrade1 = 10;
 
       (async function data() {
         let tradeHistoryData = await asyncData.tradeHistoryData.XRP();
@@ -149,7 +149,7 @@ setInterval(function(){
         return result;
       })().then((result) => {
         
-        if(+ticks[99][4] < lower && +rsi < 38 && bollingerSpread < 1.03) {
+        if(+ticks[99][4] < lower && +rsi < 38 && bollingerSpread < 1.028) {
 
           setTimeout(function(){  
             binance.cancelOrders("XRPETH", (error, response, symbol) => {
@@ -160,7 +160,7 @@ setInterval(function(){
         
         } else if(+ticks[99][4] < bollingerBands3stdDev[bollingerBands3stdDev.length -1].lower 
           && +rsi < 38 
-          && bollingerSpread < 1.03) {
+          && bollingerSpread < 1.028) {
 
           setTimeout(function(){  
             binance.cancelOrders("XRPETH", (error, response, symbol) => {
@@ -205,7 +205,7 @@ setInterval(function(){
           +ticks[99][4] < lower 
           && +rsi < 38 
           && +ticks[99][4] < simpleMovingAverage100
-          && bollingerSpread > 1.03
+          && bollingerSpread > 1.028
         ) {
           setTimeout(function(){    
             binance.cancelOrders("XRPETH", (error, response, symbol) => {
@@ -384,7 +384,7 @@ setInterval(function(){
       var lastVolume = arrayVolume[arrayVolume.length -1];
       var averageVolume = math.mean(arrayVolume);
       
-      var qtyTrade1 = 2;
+      var qtyTrade1 = 1.6;
       
       (async function data() {
         let tradeHistoryData = await asyncData.tradeHistoryData.EOS();
@@ -406,7 +406,7 @@ setInterval(function(){
         return result;
       })().then((result) => {
 
-        if(+ticks[99][4] < lower && +rsi < 38 && bollingerSpread < 1.025) {
+        if(+ticks[99][4] < lower && +rsi < 38 && bollingerSpread < 1.04) {
 
           setTimeout(function(){  
             binance.cancelOrders("EOSETH", (error, response, symbol) => {
@@ -417,7 +417,7 @@ setInterval(function(){
         
         } else if(+ticks[99][4] < bollingerBands3stdDev[bollingerBands3stdDev.length -1].lower 
           && +rsi < 38 
-          && bollingerSpread < 1.025) {
+          && bollingerSpread < 1.04) {
 
           setTimeout(function(){  
             binance.cancelOrders("EOSETH", (error, response, symbol) => {
@@ -438,7 +438,7 @@ setInterval(function(){
             binance.buy("EOSETH", qtyTrade1, Number(result.bidAsk.bidPrice) + +0.000001);
         },500);
         
-        } else if(+ticks[99][4] >= upper && +rsi > 61 && bollingerSpread < 1.025) {
+        } else if(+ticks[99][4] >= upper && +rsi > 61 && bollingerSpread < 1.04) {
           setTimeout(function(){    
             binance.cancelOrders("EOSETH", (error, response, symbol) => {
               console.log(symbol+" cancel response:", response);
@@ -446,7 +446,7 @@ setInterval(function(){
             binance.sell("EOSETH", qtyTrade1, Number(result.bidAsk.askPrice) - +0.000001);
         },100);
         
-        } else if(+ticks[99][4] >= upper && +rsi > 61 && bollingerSpread > 1.025) {
+        } else if(+ticks[99][4] >= upper && +rsi > 61 && bollingerSpread > 1.04) {
           setTimeout(function(){    
             binance.cancelOrders("EOSETH", (error, response, symbol) => {
               console.log(symbol+" cancel response:", response);
@@ -470,7 +470,7 @@ setInterval(function(){
           +ticks[99][4] < lower 
           && +rsi < 38 
           && +ticks[99][4] < simpleMovingAverage100
-          && bollingerSpread > 1.025
+          && bollingerSpread > 1.04
         ) {
           setTimeout(function(){    
             binance.cancelOrders("EOSETH", (error, response, symbol) => {
