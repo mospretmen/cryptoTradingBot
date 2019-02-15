@@ -116,6 +116,21 @@ setInterval(function(){
       
       var qtyTrade1 = 150;
       
+      //Log Bollinger Bands History (creates json file).
+      var bollingerBandsData = fs.readFileSync('./data/TRX/TRXBollingerBandsSpreadHistory.json');
+      var bollingerBandsparsedData = JSON.parse(bollingerBandsData);
+
+      var bollingerBandsHistory = bollingerBandsparsedData;
+      
+      if(bollingerBandsparsedData[bollingerBandsparsedData.length -1] != bollingerSpread){
+            bollingerBandsHistory.push(bollingerSpread);
+            fs.writeFileSync('./data/TRX/TRXBollingerBandsSpreadHistory.json', JSON.stringify(bollingerBandsHistory,null, " "));
+        }
+        
+      console.log('bollinger spread mean + 3x Std dev: ' + math.mean(bollingerBandsHistory) + (math.std(bollingerBandsHistory)) * 3);  
+      console.log('bollinger spread mean: ' + math.mean(bollingerBandsHistory));
+      console.log('bollinger spread Std dev: ' + math.std(bollingerBandsHistory));
+      
       
       (async function data() {
         let tradeHistoryData = await asyncData.tradeHistoryData.TRX();
