@@ -128,6 +128,8 @@ setInterval(function(){
         }
       
       var qtyTrade1 = 10;
+      
+      var bolSpreadParameter = 1.028;
 
       (async function data() {
         let tradeHistoryData = await asyncData.tradeHistoryData.XRP();
@@ -149,7 +151,7 @@ setInterval(function(){
         return result;
       })().then((result) => {
         
-        if(+ticks[99][4] < lower && +rsi < 38 && bollingerSpread < 1.028) {
+        if(+ticks[99][4] < lower && +rsi < 38 && bollingerSpread < bolSpreadParameter) {
 
           setTimeout(function(){  
             binance.cancelOrders("XRPETH", (error, response, symbol) => {
@@ -160,7 +162,7 @@ setInterval(function(){
         
         } else if(+ticks[99][4] < bollingerBands3stdDev[bollingerBands3stdDev.length -1].lower 
           && +rsi < 38 
-          && bollingerSpread < 1.028) {
+          && bollingerSpread < bolSpreadParameter) {
 
           setTimeout(function(){  
             binance.cancelOrders("XRPETH", (error, response, symbol) => {
@@ -205,13 +207,21 @@ setInterval(function(){
           +ticks[99][4] < lower 
           && +rsi < 38 
           && +ticks[99][4] < simpleMovingAverage100
-          && bollingerSpread > 1.028
+          && bollingerSpread > bolSpreadParameter
         ) {
           setTimeout(function(){    
             binance.cancelOrders("XRPETH", (error, response, symbol) => {
               console.log(symbol+" cancel response:", response);
             });
             binance.marketSell("XRPETH", +(result.balances.XRP.available * 0.99).toFixed(0));
+        },100);
+        
+        } else if(
+        // Reduce risk if position is almost 100% bought.  
+          +result.balances.ETH.available < 0.2
+        ) {
+          setTimeout(function(){    
+            binance.sell("XRPETH", qtyTrade1, Number(result.bidAsk.askPrice) - +0.00000001);
         },100);
         
         } else if(
@@ -477,6 +487,14 @@ setInterval(function(){
               console.log(symbol+" cancel response:", response);
             });
             binance.marketSell("EOSETH", +(result.balances.EOS.available * 0.99).toFixed(0));
+        },100);
+        
+        } else if(
+          // Reduce risk if position is almost 100% bought.  
+          +result.balances.ETH.available < 0.2
+        ) {
+          setTimeout(function(){    
+            binance.sell("EOSETH", qtyTrade1, Number(result.bidAsk.askPrice) - +0.000001);
         },100);
           
         } else {

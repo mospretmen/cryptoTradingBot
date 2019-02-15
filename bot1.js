@@ -116,6 +116,8 @@ setInterval(function(){
       
       var qtyTrade1 = 150;
       
+      var bolSpreadParameter = 1.036;
+      
       //Log Bollinger Bands History (creates json file).
       var bollingerBandsData = fs.readFileSync('./data/TRX/TRXBollingerBandsSpreadHistory.json');
       var bollingerBandsparsedData = JSON.parse(bollingerBandsData);
@@ -127,9 +129,9 @@ setInterval(function(){
             fs.writeFileSync('./data/TRX/TRXBollingerBandsSpreadHistory.json', JSON.stringify(bollingerBandsHistory,null, " "));
         }
         
-      console.log('bollinger spread mean + 3x Std dev: ' + math.mean(bollingerBandsHistory) + (math.std(bollingerBandsHistory)) * 3);  
-      console.log('bollinger spread mean: ' + math.mean(bollingerBandsHistory));
-      console.log('bollinger spread Std dev: ' + math.std(bollingerBandsHistory));
+      console.log('bollinger spread mean + 3x Std dev: ' + colors.yellow(math.mean(bollingerBandsHistory) + (math.std(bollingerBandsHistory)) * 3));  
+      console.log('bollinger spread mean: ' + colors.yellow(math.mean(bollingerBandsHistory)));
+      console.log('bollinger spread Std dev: ' + colors.yellow(math.std(bollingerBandsHistory)));
       
       
       (async function data() {
@@ -144,7 +146,7 @@ setInterval(function(){
         return result;
       })().then((result) => {
 
-        if(+ticks[99][4] < lower && +rsi < 38 && bollingerSpread < 1.036) {
+        if(+ticks[99][4] < lower && +rsi < 38 && bollingerSpread < bolSpreadParameter) {
 
         setTimeout(function(){  
             binance.cancelOrders("TRXETH", (error, response, symbol) => {
@@ -157,7 +159,7 @@ setInterval(function(){
         
         } else if(+ticks[99][4] < bollingerBands3stdDev[bollingerBands3stdDev.length -1].lower 
           && +rsi < 38 
-          && bollingerSpread < 1.036) {
+          && bollingerSpread < bolSpreadParameter) {
 
           setTimeout(function(){  
             binance.cancelOrders("TRXETH", (error, response, symbol) => {
@@ -168,7 +170,7 @@ setInterval(function(){
         
         } else if(+ticks[99][4] < simpleMovingAverage100 
           && +ticks[99][4] < middle 
-          && +rsi < 38
+          && +rsi < 35
           && bullish(fivePeriodCandlestickInput) === true) {
           
           setTimeout(function(){  
@@ -178,7 +180,7 @@ setInterval(function(){
             binance.buy("TRXETH", qtyTrade1, Number(result.bidAsk.bidPrice) + +0.00000001);
         },500);
         
-        } else if(+ticks[99][4] > upper && +rsi > 61 && bollingerSpread < 1.036) {
+        } else if(+ticks[99][4] > upper && +rsi > 61 && bollingerSpread < bolSpreadParameter) {
           
         setTimeout(function(){    
             binance.cancelOrders("TRXETH", (error, response, symbol) => {
@@ -189,7 +191,7 @@ setInterval(function(){
           
         },100);
         
-        } else if(+ticks[99][4] > upper && +rsi > 61 && bollingerSpread > 1.036) {
+        } else if(+ticks[99][4] > upper && +rsi > 61 && bollingerSpread > bolSpreadParameter) {
           
         setTimeout(function(){    
             binance.cancelOrders("TRXETH", (error, response, symbol) => {
@@ -202,7 +204,7 @@ setInterval(function(){
         
         } else if(+ticks[99][4] > simpleMovingAverage100 
           && +ticks[99][4] > middle 
-          && +rsi > 61
+          && +rsi > 63
           && bullish(fivePeriodCandlestickInput) === false) {
           
           setTimeout(function(){  
@@ -216,7 +218,7 @@ setInterval(function(){
           +ticks[99][4] < lower 
           && +rsi < 38 
           && +ticks[99][4] < simpleMovingAverage100
-          && bollingerSpread > 1.036
+          && bollingerSpread > bolSpreadParameter
         ) {
           
         setTimeout(function(){    
@@ -226,6 +228,22 @@ setInterval(function(){
           
           binance.marketSell("TRXETH", +(result.balances.TRX.available * 0.99).toFixed(0));
           
+        },100);
+        
+        } else if(
+        // Reduce risk if position is almost 100% bought.  
+          +result.balances.ETH.available < 0.2
+        ) {
+          setTimeout(function(){    
+            binance.sell("TRXETH", qtyTrade1, Number(result.bidAsk.askPrice) - +0.00000001);
+        },100);
+        
+        } else if(
+        // ADD more BNB for transaction fees.   
+          +result.balances.BNB.available < 1
+        ) {
+          setTimeout(function(){    
+            binance.marketBuy("BNBETH", 1);
         },100);
           
         } else {
