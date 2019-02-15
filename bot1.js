@@ -88,6 +88,12 @@ setInterval(function() {
             values: array100Period,
             period: 14
         };
+        
+        var inputBB1 = {
+            period : 20, 
+            values : array100Period,
+            stdDev : 2
+        };
 
         var inputBB = {
             period: 20,
@@ -95,7 +101,7 @@ setInterval(function() {
             stdDev: 2
         };
 
-        var inputBB3stdDev = {
+        var inputBB3 = {
             period: 20,
             values: array100Period,
             stdDev: 3
@@ -103,8 +109,10 @@ setInterval(function() {
 
         //Calculate RSI (Relative Strength Index), BollingerBands, SMA (Simple Moving Average), ROC (Rate of Change).
         var rsi = RSI.calculate(inputRSI)[RSI.calculate(inputRSI).length - 1];
+        
+        var bollingerBands1 = BB.calculate(inputBB1);
         var bollingerBands = BB.calculate(inputBB);
-        var bollingerBands3stdDev = BB.calculate(inputBB3stdDev);
+        var bollingerBands3 = BB.calculate(inputBB3);
         var bollingerSpread = bollingerBands[bollingerBands.length - 1].upper / bollingerBands[bollingerBands.length - 1].lower;
         var upper = bollingerBands[bollingerBands.length - 1].upper;
         var middle = bollingerBands[bollingerBands.length - 1].middle;
@@ -165,7 +173,7 @@ setInterval(function() {
 
                 }, 500);
 
-            } else if (+ticks[99][4] < bollingerBands3stdDev[bollingerBands3stdDev.length - 1].lower &&
+            } else if (+ticks[99][4] < bollingerBands3[bollingerBands3.length - 1].lower &&
                 +rsi < 38 &&
                 bollingerSpread < bolSpreadParameter) {
 
@@ -178,7 +186,7 @@ setInterval(function() {
                 }, 500);
 
             } else if (+ticks[99][4] < simpleMovingAverage100 &&
-                +ticks[99][4] < middle &&
+                +ticks[99][4] < bollingerBands1[bollingerBands1.length - 1].lower &&
                 +rsi < 35 &&
                 bullish(fivePeriodCandlestickInput) === true) {
 
@@ -213,7 +221,7 @@ setInterval(function() {
                 }, 5000);
 
             } else if (+ticks[99][4] > simpleMovingAverage100 &&
-                +ticks[99][4] > middle &&
+                +ticks[99][4] > bollingerBands1[bollingerBands1.length - 1].upper &&
                 +rsi > 63 &&
                 bullish(fivePeriodCandlestickInput) === false) {
 
@@ -242,7 +250,6 @@ setInterval(function() {
                 }, 100);
 
             } else if (
-                // Reducing risk: position is almost 100% bought.  
                 +result.balances.ETH.available < 0.2
             ) {
                 setTimeout(function() {
@@ -261,13 +268,13 @@ setInterval(function() {
             } else {
                 console.log('============================================================');
                 console.log(new Date().toLocaleString());
-                console.log(colors.cyan('Waiting for trade... => ' + symbol).bold)
+                console.log(colors.cyan('Waiting for trade... => ' + symbol).bold);
             }
             console.log('------------------------------------------------------------');
             if (+close > +simpleMovingAverage100[simpleMovingAverage100.length - 1]) {
-                console.log('^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^'.bgGreen + "\n")
+                console.log('^^^^^^^^^^^^^^^^^^^^^^^^ Trend is UP ^^^^^^^^^^^^^^^^^^^^^^^^'.bgGreen + "\n");
             } else {
-                console.log('________________________ Trend is DOWN ________________________'.bgRed + "\n")
+                console.log('________________________ Trend is DOWN ________________________'.bgRed + "\n");
             }
             console.log(colors.underline(`Price Data =>`));
             if (Number(close) > bollingerBands[bollingerBands.length - 1].upper) {
