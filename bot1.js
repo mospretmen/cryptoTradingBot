@@ -254,7 +254,7 @@ setInterval(function() {
             ) {
                 setTimeout(function() {
                   console.log(colors.cyan('Reduce risk: position is almost 100% bought.'));
-                    binance.sell("TRXETH", qtyTrade1, Number(result.bidAsk.askPrice) - +0.00000001);
+                    binance.sell("TRXETH", qtyTrade1 * 5, Number(result.bidAsk.askPrice) - +0.00000001);
                 }, 100);
 
             } else if (
