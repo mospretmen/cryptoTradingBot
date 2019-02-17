@@ -23,8 +23,8 @@ var asyncData = require("./asyncData.js");
 
 
 const binance = require('node-binance-api')().options({
-  APIKEY: 'KkzLIQ4Je2UwkehagnIaY5Jk1tsY4Yo3BAZqUy6WcydDtF4jtXTftHmXVtVUs5u9',
-  APISECRET: 'Z5nxpN8xbj1gQ27bEgTANgOGGd8JzsZVOKdgnOy3ta18Tfh6itJGiA9eDmYUwn7f',
+  APIKEY: process.env.APIKEY,
+  APISECRET: process.env.APISECRET,
   useServerTime: true, // If you get timestamp errors, synchronize to server time at startup
   test: false // If you want to use sandbox mode where orders are simulated
 });
@@ -126,22 +126,22 @@ setInterval(function() {
         var lastVolume = arrayVolume[arrayVolume.length -1];
         var averageVolume = math.mean(arrayVolume);
         var qtyTrade1 = 10;
-        var bolSpreadParameter = 1.036;
+        var bolSpreadParameter = 1.04;
 
         //Log Bollinger Bands History (creates json file).
-        var bollingerBandsData = fs.readFileSync('./data/XRP/XRPBollingerBandsSpreadHistory.json');
-        var bollingerBandsparsedData = JSON.parse(bollingerBandsData);
-        var bollingerBandsHistory = bollingerBandsparsedData;
+        // var bollingerBandsData = fs.readFileSync('./data/XRP/XRPBollingerBandsSpreadHistory.json');
+        // var bollingerBandsparsedData = JSON.parse(bollingerBandsData);
+        // var bollingerBandsHistory = bollingerBandsparsedData;
 
-        if (bollingerBandsparsedData[bollingerBandsparsedData.length - 1] != bollingerSpread) {
-            bollingerBandsHistory.push(bollingerSpread);
-            fs.writeFileSync('./data/XRP/XRPBollingerBandsSpreadHistory.json', JSON.stringify(bollingerBandsHistory, null, " "));
-        }
+        // if (bollingerBandsparsedData[bollingerBandsparsedData.length - 1] != bollingerSpread) {
+        //     bollingerBandsHistory.push(bollingerSpread);
+        //     fs.writeFileSync('./data/XRP/XRPBollingerBandsSpreadHistory.json', JSON.stringify(bollingerBandsHistory, null, " "));
+        // }
         
-        console.log('------------------------------------------------------------');
-        console.log('bollinger spread mean + 3x Std dev: ' + colors.yellow((math.mean(bollingerBandsHistory) + (math.std(bollingerBandsHistory)) * 3).toFixed(3)));
-        console.log('bollinger spread mean: ' + colors.yellow(math.mean(bollingerBandsHistory).toFixed(3)));
-        console.log('bollinger spread Std dev: ' + colors.yellow(math.std(bollingerBandsHistory).toFixed(3)));
+        // console.log('------------------------------------------------------------');
+        // console.log('bollinger spread mean + 3x Std dev: ' + colors.yellow((math.mean(bollingerBandsHistory) + (math.std(bollingerBandsHistory)) * 3).toFixed(3)));
+        // console.log('bollinger spread mean: ' + colors.yellow(math.mean(bollingerBandsHistory).toFixed(3)));
+        // console.log('bollinger spread Std dev: ' + colors.yellow(math.std(bollingerBandsHistory).toFixed(3)));
 
         (async function data() {
             let tradeHistoryData = await asyncData.tradeHistoryData.XRP();
@@ -440,19 +440,19 @@ setInterval(function() {
         var bolSpreadParameter = 1.036;
 
         //Log Bollinger Bands History (creates json file).
-        var bollingerBandsData = fs.readFileSync('./data/EOS/EOSBollingerBandsSpreadHistory.json');
-        var bollingerBandsparsedData = JSON.parse(bollingerBandsData);
-        var bollingerBandsHistory = bollingerBandsparsedData;
+        // var bollingerBandsData = fs.readFileSync('./data/EOS/EOSBollingerBandsSpreadHistory.json');
+        // var bollingerBandsparsedData = JSON.parse(bollingerBandsData);
+        // var bollingerBandsHistory = bollingerBandsparsedData;
 
-        if (bollingerBandsparsedData[bollingerBandsparsedData.length - 1] != bollingerSpread) {
-            bollingerBandsHistory.push(bollingerSpread);
-            fs.writeFileSync('./data/EOS/EOSBollingerBandsSpreadHistory.json', JSON.stringify(bollingerBandsHistory, null, " "));
-        }
+        // if (bollingerBandsparsedData[bollingerBandsparsedData.length - 1] != bollingerSpread) {
+        //     bollingerBandsHistory.push(bollingerSpread);
+        //     fs.writeFileSync('./data/EOS/EOSBollingerBandsSpreadHistory.json', JSON.stringify(bollingerBandsHistory, null, " "));
+        // }
         
-        console.log('------------------------------------------------------------');
-        console.log('bollinger spread mean + 3x Std dev: ' + colors.yellow((math.mean(bollingerBandsHistory) + (math.std(bollingerBandsHistory)) * 3).toFixed(3)));
-        console.log('bollinger spread mean: ' + colors.yellow(math.mean(bollingerBandsHistory).toFixed(3)));
-        console.log('bollinger spread Std dev: ' + colors.yellow(math.std(bollingerBandsHistory).toFixed(3)));
+        // console.log('------------------------------------------------------------');
+        // console.log('bollinger spread mean + 3x Std dev: ' + colors.yellow((math.mean(bollingerBandsHistory) + (math.std(bollingerBandsHistory)) * 3).toFixed(3)));
+        // console.log('bollinger spread mean: ' + colors.yellow(math.mean(bollingerBandsHistory).toFixed(3)));
+        // console.log('bollinger spread Std dev: ' + colors.yellow(math.std(bollingerBandsHistory).toFixed(3)));
 
         (async function data() {
             let tradeHistoryData = await asyncData.tradeHistoryData.EOS();
@@ -477,7 +477,7 @@ setInterval(function() {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Buy: accumulation, price < lower limit'));
-                    binance.buy("EOSETH", qtyTrade1, Number(result.bidAsk.bidPrice) + +0.00000001);
+                    binance.buy("EOSETH", qtyTrade1, Number(result.bidAsk.bidPrice) + +0.000001);
 
                 }, 500);
 
@@ -490,7 +490,7 @@ setInterval(function() {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Strong Buy: accumulation, price < lower limit'));
-                    binance.buy("EOSETH", qtyTrade1 * 3, Number(result.bidAsk.bidPrice) + +0.0000001);
+                    binance.buy("EOSETH", qtyTrade1 * 3, Number(result.bidAsk.bidPrice) + +0.00001);
                 }, 500);
 
             } else if (+ticks[99][4] < simpleMovingAverage100 &&
@@ -503,7 +503,7 @@ setInterval(function() {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Buy based on bearish Candlestick Pattern.'));
-                    binance.buy("EOSETH", qtyTrade1, Number(result.bidAsk.bidPrice) + +0.00000001);
+                    binance.buy("EOSETH", qtyTrade1, Number(result.bidAsk.bidPrice) + +0.000001);
                 }, 500);
 
             } else if (+ticks[99][4] > upper && +rsi > 61 && bollingerSpread < bolSpreadParameter) {
@@ -513,7 +513,7 @@ setInterval(function() {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Sell: accumulation, price > upper limit'));
-                    binance.sell("EOSETH", qtyTrade1, Number(result.bidAsk.askPrice) - +0.00000001);
+                    binance.sell("EOSETH", qtyTrade1, Number(result.bidAsk.askPrice) - +0.000001);
 
                 }, 100);
 
@@ -538,7 +538,7 @@ setInterval(function() {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Sell based on bearish Candlestick Pattern.'));
-                    binance.sell("EOSETH", qtyTrade1, Number(result.bidAsk.askPrice) - +0.00000001);
+                    binance.sell("EOSETH", qtyTrade1, Number(result.bidAsk.askPrice) - +0.000001);
                 }, 100);
 
             } else if (
@@ -562,7 +562,7 @@ setInterval(function() {
             ) {
                 setTimeout(function() {
                   console.log(colors.cyan('Reduce risk: position is almost 100% bought.'));
-                    binance.sell("EOSETH", qtyTrade1 * 5, Number(result.bidAsk.askPrice) - +0.00000001);
+                    binance.sell("EOSETH", qtyTrade1 * 5, Number(result.bidAsk.askPrice) - +0.000001);
                 }, 100);
 
             } else if (

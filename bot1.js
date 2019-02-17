@@ -129,22 +129,22 @@ setInterval(function() {
         var lastVolume = arrayVolume[arrayVolume.length -1];
         var averageVolume = math.mean(arrayVolume);
         var qtyTrade1 = 150;
-        var bolSpreadParameter = 1.036;
+        var bolSpreadParameter = 1.04;
 
         //Log Bollinger Bands History (creates json file).
-        var bollingerBandsData = fs.readFileSync('./data/TRX/TRXBollingerBandsSpreadHistory.json');
-        var bollingerBandsparsedData = JSON.parse(bollingerBandsData);
-        var bollingerBandsHistory = bollingerBandsparsedData;
+        // var bollingerBandsData = fs.readFileSync('./data/TRX/TRXBollingerBandsSpreadHistory.json');
+        // var bollingerBandsparsedData = JSON.parse(bollingerBandsData);
+        // var bollingerBandsHistory = bollingerBandsparsedData;
 
-        if (bollingerBandsparsedData[bollingerBandsparsedData.length - 1] != bollingerSpread) {
-            bollingerBandsHistory.push(bollingerSpread);
-            fs.writeFileSync('./data/TRX/TRXBollingerBandsSpreadHistory.json', JSON.stringify(bollingerBandsHistory, null, " "));
-        }
+        // if (bollingerBandsparsedData[bollingerBandsparsedData.length - 1] != bollingerSpread) {
+        //     bollingerBandsHistory.push(bollingerSpread);
+        //     fs.writeFileSync('./data/TRX/TRXBollingerBandsSpreadHistory.json', JSON.stringify(bollingerBandsHistory, null, " "));
+        // }
         
-        console.log('------------------------------------------------------------');
-        console.log('bollinger spread mean + 3x Std dev: ' + colors.yellow((math.mean(bollingerBandsHistory) + (math.std(bollingerBandsHistory)) * 3).toFixed(3)));
-        console.log('bollinger spread mean: ' + colors.yellow(math.mean(bollingerBandsHistory).toFixed(3)));
-        console.log('bollinger spread Std dev: ' + colors.yellow(math.std(bollingerBandsHistory).toFixed(3)));
+        // console.log('------------------------------------------------------------');
+        // console.log('bollinger spread mean + 3x Std dev: ' + colors.yellow((math.mean(bollingerBandsHistory) + (math.std(bollingerBandsHistory)) * 3).toFixed(3)));
+        // console.log('bollinger spread mean: ' + colors.yellow(math.mean(bollingerBandsHistory).toFixed(3)));
+        // console.log('bollinger spread Std dev: ' + colors.yellow(math.std(bollingerBandsHistory).toFixed(3)));
 
         (async function data() {
             let tradeHistoryData = await asyncData.tradeHistoryData.TRX();

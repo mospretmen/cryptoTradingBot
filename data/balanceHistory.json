@@ -598,5 +598,11 @@
   "cashFlow": 0,
   "totalBalance": 11.94,
   "totalBalancePlusCashFLow": 11.94
+ },
+ {
+  "date": "02/17/2019",
+  "cashFlow": 0,
+  "totalBalance": 11.38,
+  "totalBalancePlusCashFLow": 11.38
  }
 ]
