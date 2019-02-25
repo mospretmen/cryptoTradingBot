@@ -83,29 +83,8 @@ app.get('/', (req, res) => {
       {
         tradeHistory: JSON.parse(fs.readFileSync('./data/tradeHistory.json')), 
         balanceHistory: JSON.parse(fs.readFileSync('./data/balanceHistory.json')), 
-        depositHistory: depositHistory, 
-        withdrawHistory: withdrawHistory
       } 
     );
-});
-
-app.get('/backTest', (req, res) => {
-    res.render('backTest.ejs',
-      {
-        tradeHistory: JSON.parse(fs.readFileSync('./data/tradeHistory.json')), 
-        balanceHistory: JSON.parse(fs.readFileSync('./data/balanceHistory.json')), 
-        depositHistory: depositHistory, 
-        withdrawHistory: withdrawHistory
-      } 
-    );
-});
-
-app.get('/login', (req, res) => {
-  res.render('login.ejs');
-});
-
-app.get('/register', (req, res) => {
-  res.render('register.ejs');
 });
 
 //===============================================================================================================================

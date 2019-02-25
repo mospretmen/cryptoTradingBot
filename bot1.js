@@ -30,17 +30,6 @@ const binance = require('node-binance-api')().options({
 
 
 //===============================================================================================================================
-//      DATABASE CONFIG
-//===============================================================================================================================
-
-
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://admin:qqw3mqw8@ds155651.mlab.com:55651/tradingbot', {
-    useNewUrlParser: true
-});
-
-
-//===============================================================================================================================
 //      BodyParser + MethodOverride + EJS CONFIG
 //===============================================================================================================================
 
@@ -130,21 +119,6 @@ setInterval(function() {
         var averageVolume = math.mean(arrayVolume);
         var qtyTrade1 = 150;
         var bolSpreadParameter = 1.04;
-
-        //Log Bollinger Bands History (creates json file).
-        // var bollingerBandsData = fs.readFileSync('./data/TRX/TRXBollingerBandsSpreadHistory.json');
-        // var bollingerBandsparsedData = JSON.parse(bollingerBandsData);
-        // var bollingerBandsHistory = bollingerBandsparsedData;
-
-        // if (bollingerBandsparsedData[bollingerBandsparsedData.length - 1] != bollingerSpread) {
-        //     bollingerBandsHistory.push(bollingerSpread);
-        //     fs.writeFileSync('./data/TRX/TRXBollingerBandsSpreadHistory.json', JSON.stringify(bollingerBandsHistory, null, " "));
-        // }
-        
-        // console.log('------------------------------------------------------------');
-        // console.log('bollinger spread mean + 3x Std dev: ' + colors.yellow((math.mean(bollingerBandsHistory) + (math.std(bollingerBandsHistory)) * 3).toFixed(3)));
-        // console.log('bollinger spread mean: ' + colors.yellow(math.mean(bollingerBandsHistory).toFixed(3)));
-        // console.log('bollinger spread Std dev: ' + colors.yellow(math.std(bollingerBandsHistory).toFixed(3)));
 
         (async function data() {
             let tradeHistoryData = await asyncData.tradeHistoryData.TRX();
@@ -376,6 +350,6 @@ setInterval(function() {
 //===============================================================================================================================
 
 
-app.listen(8082, process.env.IP, function() {
-    console.log('server start...' + process.env.IP + ":" + 8082);
+app.listen(8080, process.env.IP, function() {
+    console.log('server start...' + process.env.IP + ":" + 8080);
 });
