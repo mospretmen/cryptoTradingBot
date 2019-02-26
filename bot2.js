@@ -65,6 +65,14 @@ app.use(express.static(__dirname + "/public"));
 
 // /////////////////////////////////////////////////////// TRX/ETH TRADING BOT ///////////////////////////////////////////////////////
 
+binance.prevDay(false, (error, prevDay) => {
+  // console.log(prevDay); // view all data
+  for ( let obj of prevDay ) {
+    let symbol = obj.symbol;
+    console.log(symbol, obj.priceChangePercent);
+  }
+});
+
 let tradePair = 'TRXETH';
 let tradeQty = 150;
 let timeFrame = '15m'; // Trading Period: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
@@ -237,7 +245,6 @@ Data15.deleteMany({}, (err, result)=>{
     }
 });
 
-
 // Intervals: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
 binance.candlesticks(tradePair, timeFrame, (error, ticks, symbol) => {
   let last_tick = ticks[ticks.length - 1];
@@ -262,7 +269,7 @@ binance.candlesticks(tradePair, timeFrame, (error, ticks, symbol) => {
         if(err) {
           console.log(err);
         } else {
-          console.log(docs);
+          return docs;
         }
     });
   
