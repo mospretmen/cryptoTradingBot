@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bot1": "node bot1.js",
-    "bot2": "node bot2.js",
+    "bot": "node bot.js",
     "index": "node index.js"
   },
   "author": "Gabriel Motta",

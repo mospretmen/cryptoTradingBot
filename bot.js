@@ -66,6 +66,9 @@ setInterval(function() {
             arrayVolume.push(+ticks[i][5]);
         }
 
+
+        // Available parameters to use with Trading strategy (RSI, BolingerBand, SMA, etc...) Look at the technical indicators library for more indicators.
+
         var fivePeriodCandlestickInput = {
             open: [+ticks[94][1], +ticks[95][1], +ticks[96][1], +ticks[97][1], +ticks[98][1]],
             high: [+ticks[94][2], +ticks[95][2], +ticks[96][2], +ticks[97][2], +ticks[98][2]],
@@ -121,13 +124,13 @@ setInterval(function() {
         var bolSpreadParameter = 1.04;
 
         (async function data() {
-            // let tradeHistoryData = await asyncData.tradeHistoryData.TRX();
+            let tradeHistoryData = await asyncData.tradeHistoryData.TRX();
             let balances = await asyncData.getBalances();
             let prices = await asyncData.getPriceData();
             let bidAsk = await asyncData.getBidAsk.TRX();
 
             let result = {
-                // tradeHistoryData: tradeHistoryData,
+                tradeHistoryData: tradeHistoryData,
                 balances: balances,
                 prices: prices,
                 bidAsk: bidAsk
@@ -135,8 +138,10 @@ setInterval(function() {
 
             return result;
         })().then((result) => {
+            
+            // STRATEGY GOES HERE! Example below....use the node-binance-api functions on the README.md file to create strategy.
 
-            if (+ticks[99][4] < lower && +rsi < 38 && bollingerSpread < bolSpreadParameter) {
+            if (+ticks[99][4] < lower ) {
 
                 setTimeout(function() {
                     binance.cancelOrders("TRXETH", (error, response, symbol) => {
@@ -146,98 +151,8 @@ setInterval(function() {
                     binance.buy("TRXETH", qtyTrade1, Number(result.bidAsk.bidPrice) + +0.00000001);
 
                 }, 500);
-
-            } else if (+ticks[99][4] < bollingerBands3[bollingerBands3.length - 1].lower &&
-                +rsi < 38 &&
-                bollingerSpread < bolSpreadParameter) {
-
-                setTimeout(function() {
-                    binance.cancelOrders("TRXETH", (error, response, symbol) => {
-                        console.log(symbol + " cancel response:", response);
-                    });
-                    console.log(colors.cyan('Strong Buy: accumulation, price < lower limit'));
-                    binance.buy("TRXETH", qtyTrade1 * 3, Number(result.bidAsk.bidPrice) + +0.0000001);
-                }, 500);
-
-            } else if (+ticks[99][4] < simpleMovingAverage100 &&
-                +ticks[99][4] < bollingerBands1[bollingerBands1.length - 1].lower &&
-                +rsi < 35 &&
-                bullish(fivePeriodCandlestickInput) === true) {
-
-                setTimeout(function() {
-                    binance.cancelOrders("TRXETH", (error, response, symbol) => {
-                        console.log(symbol + " cancel response:", response);
-                    });
-                    console.log(colors.cyan('Buy based on bearish Candlestick Pattern.'));
-                    binance.buy("TRXETH", qtyTrade1, Number(result.bidAsk.bidPrice) + +0.00000001);
-                }, 500);
-
-            } else if (+ticks[99][4] > upper && +rsi > 61 && bollingerSpread < bolSpreadParameter) {
-
-                setTimeout(function() {
-                    binance.cancelOrders("TRXETH", (error, response, symbol) => {
-                        console.log(symbol + " cancel response:", response);
-                    });
-                    console.log(colors.cyan('Sell: accumulation, price > upper limit'));
-                    binance.sell("TRXETH", qtyTrade1, Number(result.bidAsk.askPrice) - +0.00000001);
-
-                }, 100);
-
-            } else if (+ticks[99][4] > upper && +rsi > 61 && bollingerSpread > bolSpreadParameter) {
-
-                setTimeout(function() {
-                    binance.cancelOrders("TRXETH", (error, response, symbol) => {
-                        console.log(symbol + " cancel response:", response);
-                    });
-                    console.log(colors.cyan('Delay sell: Bollinger strong, RSI strong, price > upper limit'));
-                    binance.sell("TRXETH", qtyTrade1, +(Number(result.bidAsk.askPrice) * 1.002).toFixed(8));
-
-                }, 5000);
-
-            } else if (+ticks[99][4] > simpleMovingAverage100 &&
-                +ticks[99][4] > bollingerBands1[bollingerBands1.length - 1].upper &&
-                +rsi > 63 &&
-                bullish(fivePeriodCandlestickInput) === false) {
-
-                setTimeout(function() {
-                    binance.cancelOrders("TRXETH", (error, response, symbol) => {
-                        console.log(symbol + " cancel response:", response);
-                    });
-                    console.log(colors.cyan('Sell based on bearish Candlestick Pattern.'));
-                    binance.sell("TRXETH", qtyTrade1, Number(result.bidAsk.askPrice) - +0.00000001);
-                }, 100);
-
-            } else if (
-                +ticks[99][4] < lower &&
-                +rsi < 38 &&
-                +ticks[99][4] < simpleMovingAverage100 &&
-                bollingerSpread > bolSpreadParameter
-            ) {
-
-                setTimeout(function() {
-                    binance.cancelOrders("TRXETH", (error, response, symbol) => {
-                        console.log(symbol + " cancel response:", response);
-                    });
-                    console.log(colors.cyan('Exit entire position.'));
-                    binance.marketSell("TRXETH", +(result.balances.TRX.available * 0.99).toFixed(0));
-
-                }, 100);
-
-            } else if (
-                +result.balances.ETH.available < 0.2
-            ) {
-                setTimeout(function() {
-                  console.log(colors.cyan('Reduce risk: position is almost 100% bought.'));
-                    binance.sell("TRXETH", qtyTrade1 * 5, Number(result.bidAsk.askPrice) - +0.00000001);
-                }, 100);
-
-            } else if (
-                // ADD more BNB for transaction fees.   
-                +result.balances.BNB.available < 1
-            ) {
-                setTimeout(function() {
-                    binance.marketBuy("BNBETH", 1);
-                }, 100);
+                
+            // STRATEGY ENDS HERE!    
 
             } else {
                 console.log('============================================================');
@@ -286,62 +201,19 @@ setInterval(function() {
             } else {
                 console.log("Avg MKT_Maker Spread: " + colors.red(mktMakerProfitOrLoss + ' %').bold);
             }
-            console.log('------------------------------------------------------------' + "\n");
 
-            console.log(colors.underline(`------------------------ACCOUNT DATA------------------------`).bgBlue);
-
-            var totalETHInvested = 0;
-            var XRPETHBalance = (+result.balances.XRP.available * +result.prices.XRPETH).toFixed(2);
-            var TUSDEthBalance = (+result.balances.TUSD.available * +result.prices.TUSDETH).toFixed(2);
-            var bnbEthBalance = (+result.balances.BNB.available * +result.prices.BNBETH).toFixed(2);
-            var eosEthBalance = (+result.balances.EOS.available * +result.prices.EOSETH).toFixed(2);
-            var trxEthBalance = (+result.balances.TRX.available * +result.prices.TRXETH).toFixed(2);
-            var ethBalance = (+result.balances.ETH.available).toFixed(2);
-            var totalBalance = +XRPETHBalance + +TUSDEthBalance + +bnbEthBalance + +eosEthBalance + +trxEthBalance + +ethBalance;
-
-            console.log(`XRP balance: ${(+result.balances.XRP.available).toFixed(0)} or ${XRPETHBalance} ETH, ${((+XRPETHBalance/+totalBalance)*100).toFixed(0)} % On Trade`);
-            console.log(`TUSD balance: ${(+result.balances.TUSD.available).toFixed(0)} or ${TUSDEthBalance} ETH, ${((+TUSDEthBalance/+totalBalance)*100).toFixed(0)} % On Trade`);
-            console.log(`BNB balance: ${(+result.balances.BNB.available).toFixed(0)} or ${bnbEthBalance} ETH, ${((+bnbEthBalance/+totalBalance)*100).toFixed(0)} % On Trade`);
-            console.log(`EOS balance: ${(+result.balances.EOS.available).toFixed(0)} or ${eosEthBalance} ETH, ${((+eosEthBalance/+totalBalance)*100).toFixed(0)} % On Trade`);
-            console.log(`TRX balance: ${(+result.balances.TRX.available).toFixed(0)} or ${trxEthBalance} ETH, ${((+trxEthBalance/+totalBalance)*100).toFixed(0)} % On Trade`);
-            console.log("ETH balance:", ethBalance);
-            console.log("Total ETH balance:", totalBalance.toFixed(2));
-            console.log('Total ETH Invested:', totalETHInvested);
-            console.log('Total ETH Profit Or Loss:', (totalBalance - totalETHInvested).toFixed(2));
-            var roi = (((+totalBalance / +totalETHInvested) - 1) * 100).toFixed(2);
-
-            if (roi > 0) {
-                console.log(colors.bgBlack(`ROI Since Inception ( ${moment("20181109", "YYYYMMDD").fromNow()} ): ` + colors.green(roi + ' %')).bold);
-            } else {
-                console.log(colors.bgBlack(`ROI Since Inception ( ${moment("20181109", "YYYYMMDD").fromNow()} ): ` + colors.red(roi + ' %')).bold);
-            }
             console.log('------------------------------------------------------------' + "\n");
             binance.openOrders(false, (error, openOrders) => {
                 console.log("openOrders()", openOrders);
             });
 
-
-            //Log Balance History (creates json file).
-            var data = fs.readFileSync('./data/balanceHistory.json');
-            var parsedData = JSON.parse(data);
-            var balanceHistory = parsedData;
-
-            if (parsedData[parsedData.length - 1].date != moment().format('MM/DD/YYYY')) {
-                balanceHistory.push({
-                    date: moment().format('MM/DD/YYYY'),
-                    cashFlow: 0,
-                    totalBalance: +(+XRPETHBalance + +TUSDEthBalance + +bnbEthBalance + +eosEthBalance + +trxEthBalance + +ethBalance).toFixed(2),
-                    totalBalancePlusCashFLow: +(+XRPETHBalance + +TUSDEthBalance + +bnbEthBalance + +eosEthBalance + +trxEthBalance + +ethBalance).toFixed(2)
-                });
-                fs.writeFileSync('./data/balanceHistory.json', JSON.stringify(balanceHistory, null, " "));
-            }
         });
 
     }, {
         limit: 100,
         endTime: Date.now()
     });
-}, 6000);
+}, 4000);
 
 
 //===============================================================================================================================
@@ -349,6 +221,6 @@ setInterval(function() {
 //===============================================================================================================================
 
 
-app.listen(8080, process.env.IP, function() {
-    console.log('server start...' + process.env.IP + ":" + 8080);
+app.listen(8081, process.env.IP, function() {
+    console.log('server start...' + process.env.IP + ":" + 8081);
 });
