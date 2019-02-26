@@ -19,29 +19,7 @@ app.locals._ = _;
 app.locals.moment = moment;
 app.locals.numeral = numeral;
 
-//===============================================================================================================================
-//      Binance CONFIG
-//===============================================================================================================================
-
-
-const binance = require('node-binance-api')().options({
-  APIKEY: 'KkzLIQ4Je2UwkehagnIaY5Jk1tsY4Yo3BAZqUy6WcydDtF4jtXTftHmXVtVUs5u9',
-  APISECRET: 'Z5nxpN8xbj1gQ27bEgTANgOGGd8JzsZVOKdgnOy3ta18Tfh6itJGiA9eDmYUwn7f',
-  useServerTime: true, // If you get timestamp errors, synchronize to server time at startup
-  test: false // If you want to use sandbox mode where orders are simulated
-});
-
-
-//===============================================================================================================================
-//      DATABASE CONFIG
-//===============================================================================================================================
-
-
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://admin:qqw3mqw8@ds155651.mlab.com:55651/tradingbot', { useNewUrlParser: true });
-
-
-//===============================================================================================================================
+//=======================================================================================================================
 //      BodyParser + MethodOverride + EJS CONFIG
 //===============================================================================================================================
 
@@ -53,25 +31,6 @@ app.use(methodOverride("_method"));
 app.use(express.static(__dirname + "/public"));
 
 
-//===============================================================================================================================
-//      DATA COLLECTION: Back Testing Data
-//===============================================================================================================================
-
-
-binance.candlesticks("XRPETH", "3m", (error, ticks, symbol) => {
-  let last_tick = ticks[ticks.length - 1];
-  let [time, open, high, low, close, volume, closeTime, assetVolume, trades, buyBaseVolume, buyAssetVolume, ignored] = last_tick;
-  fs.writeFileSync('./data/XRP/XRPETHHistory3m.json', JSON.stringify(ticks,null, " "));
-}, {limit: 500, endTime: Date.now()});
-
-
-binance.candlesticks("XRPETH", "5m", (error, ticks, symbol) => {
-  let last_tick = ticks[ticks.length - 1];
-  let [time, open, high, low, close, volume, closeTime, assetVolume, trades, buyBaseVolume, buyAssetVolume, ignored] = last_tick;
-  fs.writeFileSync('./data/XRP/XRPETHHistory5m.json', JSON.stringify(ticks,null, " "));
-}, {limit: 500, endTime: Date.now()});
-
-
 //=======================================/========================================================================================
 //      ROUTES
 //===============================================================================================================================
@@ -79,12 +38,7 @@ binance.candlesticks("XRPETH", "5m", (error, ticks, symbol) => {
 // app.use('/', route);
 
 app.get('/', (req, res) => {
-    res.render('index.ejs', 
-      {
-        tradeHistory: JSON.parse(fs.readFileSync('./data/tradeHistory.json')), 
-        balanceHistory: JSON.parse(fs.readFileSync('./data/balanceHistory.json')), 
-      } 
-    );
+    res.render('index.ejs');
 });
 
 //===============================================================================================================================

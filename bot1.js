@@ -121,13 +121,13 @@ setInterval(function() {
         var bolSpreadParameter = 1.04;
 
         (async function data() {
-            let tradeHistoryData = await asyncData.tradeHistoryData.TRX();
+            // let tradeHistoryData = await asyncData.tradeHistoryData.TRX();
             let balances = await asyncData.getBalances();
             let prices = await asyncData.getPriceData();
             let bidAsk = await asyncData.getBidAsk.TRX();
 
             let result = {
-                tradeHistoryData: tradeHistoryData,
+                // tradeHistoryData: tradeHistoryData,
                 balances: balances,
                 prices: prices,
                 bidAsk: bidAsk
@@ -290,8 +290,7 @@ setInterval(function() {
 
             console.log(colors.underline(`------------------------ACCOUNT DATA------------------------`).bgBlue);
 
-            // Started Testing Bot with 3.77 Eth on 11/09/2018, 2.14 12/07/2018, 6.19 12/14/2018 (verify ./data/balanceHistory.json)
-            var totalETHInvested = 13.10;
+            var totalETHInvested = 0;
             var XRPETHBalance = (+result.balances.XRP.available * +result.prices.XRPETH).toFixed(2);
             var TUSDEthBalance = (+result.balances.TUSD.available * +result.prices.TUSDETH).toFixed(2);
             var bnbEthBalance = (+result.balances.BNB.available * +result.prices.BNBETH).toFixed(2);
