@@ -8,10 +8,14 @@ cd cryptoTradingBot
 npm i --save
 ```
 
-Create a file named app-env and include the info below with your binance API keys, run command source app-env.
+Create a file named app-env and include the info below with your binance API keys.
 
+```
 export APIKEY=xxxxxxxxxxxxxx
 export APISECRET=xxxxxxxxxxxxxxx
+```
+
+Run command below.
 
 ```
 source app-env
@@ -29,7 +33,7 @@ Run front-end to dislpay your bot data.
 npm run index
 ```
 
-Refer to the node-binance-api below to understand for further instructions.
+Refer to the node-binance-api below to for further instructions.
 ---------------------------------------------------------------------------
 
 
