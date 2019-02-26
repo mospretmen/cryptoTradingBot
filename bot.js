@@ -14,6 +14,20 @@ var BB = require('technicalindicators').BollingerBands;
 var bullish = require('technicalindicators').bullish;
 var bearish = require('technicalindicators').bearish;
 var asyncData = require("./asyncData.js");
+var mongoose = require('mongoose');
+var Data = require('./models/data.js');
+
+//===============================================================================================================================
+//      Binance CONFIG
+//===============================================================================================================================
+
+
+const dbRoute = process.env.MLAB;
+mongoose.connect(dbRoute, { useNewUrlParser: true});
+let db = mongoose.connection;
+
+db.once('open', () => console.log('db connected'));
+db.on('error', console.error.bind(console, 'monogdb connection error:'));
 
 
 //===============================================================================================================================
@@ -50,9 +64,15 @@ app.use(express.static(__dirname + "/public"));
 
 // /////////////////////////////////////////////////////// TRX/ETH TRADING BOT ///////////////////////////////////////////////////////
 
+let tradePair = 'TRXETH';
+let tradeQty = 150;
+let timeFrame = '5m'; // Trading Period: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
+let decimalPlaces = 0.00000001; // Number of decimal places on tradingPair
+let tradeInterval = 5000; // Interval of milliseconds bot will analyse price changes.
+
 setInterval(function() {
-    //GET Chart Data Periods: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
-    binance.candlesticks("TRXETH", "5m", (error, ticks, symbol) => {
+    binance.candlesticks(tradePair, timeFrame, (error, ticks, symbol) => {
+        
         // console.log("candlesticks()", ticks, ticks[19][4]);
         let last_tick = ticks[ticks.length - 1];
         let [time, open, high, low, close, volume, closeTime, assetVolume, trades, buyBaseVolume, buyAssetVolume, ignored] = last_tick;
@@ -66,49 +86,41 @@ setInterval(function() {
             arrayVolume.push(+ticks[i][5]);
         }
 
-
         // Available parameters to use with Trading strategy (RSI, BolingerBand, SMA, etc...) Look at the technical indicators library for more indicators.
-
         var fivePeriodCandlestickInput = {
             open: [+ticks[94][1], +ticks[95][1], +ticks[96][1], +ticks[97][1], +ticks[98][1]],
             high: [+ticks[94][2], +ticks[95][2], +ticks[96][2], +ticks[97][2], +ticks[98][2]],
             low: [+ticks[94][3], +ticks[95][3], +ticks[96][3], +ticks[97][3], +ticks[98][3]],
             close: [+ticks[94][4], +ticks[95][4], +ticks[96][4], +ticks[97][4], +ticks[98][4]]
         };
-
         var inputRSI = {
             values: array100Period,
             period: 14
         };
-        
         var inputBB1 = {
             period : 20, 
             values : array100Period,
-            stdDev : 2
+            stdDev : 1
         };
-
-        var inputBB = {
+        var inputBB2 = {
             period: 20,
             values: array100Period,
             stdDev: 2
         };
-
         var inputBB3 = {
             period: 20,
             values: array100Period,
             stdDev: 3
         };
-
         //Calculate RSI (Relative Strength Index), BollingerBands, SMA (Simple Moving Average), ROC (Rate of Change).
         var rsi = RSI.calculate(inputRSI)[RSI.calculate(inputRSI).length - 1];
-        
         var bollingerBands1 = BB.calculate(inputBB1);
-        var bollingerBands = BB.calculate(inputBB);
+        var bollingerBands2 = BB.calculate(inputBB2);
         var bollingerBands3 = BB.calculate(inputBB3);
-        var bollingerSpread = bollingerBands[bollingerBands.length - 1].upper / bollingerBands[bollingerBands.length - 1].lower;
-        var upper = bollingerBands[bollingerBands.length - 1].upper;
-        var middle = bollingerBands[bollingerBands.length - 1].middle;
-        var lower = bollingerBands[bollingerBands.length - 1].lower;
+        var bollingerSpread = bollingerBands2[bollingerBands2.length - 1].upper / bollingerBands2[bollingerBands2.length - 1].lower;
+        var upper = bollingerBands2[bollingerBands2.length - 1].upper;
+        var middle = bollingerBands2[bollingerBands2.length - 1].middle;
+        var lower = bollingerBands2[bollingerBands2.length - 1].lower;
         var simpleMovingAverage100 = SMA.calculate({
             period: 100,
             values: array100Period
@@ -120,8 +132,7 @@ setInterval(function() {
         var roc99 = ROC.calculate({period : 99, values : array100Period})[ROC.calculate({period : 99, values : array100Period}).length - 1];
         var lastVolume = arrayVolume[arrayVolume.length -1];
         var averageVolume = math.mean(arrayVolume);
-        var qtyTrade1 = 150;
-        var bolSpreadParameter = 1.04;
+        var lastPrice = +ticks[99][4];
 
         (async function data() {
             let tradeHistoryData = await asyncData.tradeHistoryData.TRX();
@@ -135,23 +146,20 @@ setInterval(function() {
                 prices: prices,
                 bidAsk: bidAsk
             };
-
             return result;
         })().then((result) => {
             
             // STRATEGY GOES HERE! Example below....use the node-binance-api functions on the README.md file to create strategy.
-
-            if (+ticks[99][4] < lower ) {
+            if (lastPrice < lower ) {
 
                 setTimeout(function() {
-                    binance.cancelOrders("TRXETH", (error, response, symbol) => {
+                    binance.cancelOrders(tradePair, (error, response, symbol) => {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Buy: accumulation, price < lower limit'));
-                    binance.buy("TRXETH", qtyTrade1, Number(result.bidAsk.bidPrice) + +0.00000001);
+                    binance.buy(tradePair, tradeQty, Number(result.bidAsk.bidPrice) + +decimalPlaces);
 
                 }, 500);
-                
             // STRATEGY ENDS HERE!    
 
             } else {
@@ -166,9 +174,9 @@ setInterval(function() {
                 console.log('________________________ Trend is DOWN ________________________'.bgRed + "\n");
             }
             console.log(colors.underline(`Price Data =>`));
-            if (Number(close) > bollingerBands[bollingerBands.length - 1].upper) {
+            if (Number(close) > bollingerBands2[bollingerBands2.length - 1].upper) {
                 console.log("Last Close: " + colors.green(close));
-            } else if (Number(close) < bollingerBands[bollingerBands.length - 1].lower) {
+            } else if (Number(close) < bollingerBands2[bollingerBands2.length - 1].lower) {
                 console.log("Last Close: " + colors.red(close));
             } else {
                 console.log("Last Close: " + Number(ticks[99][4]).toFixed(8));
@@ -179,8 +187,8 @@ setInterval(function() {
                 console.log(`Candlestick Pattern Bullish?: ${colors.red(bullish(fivePeriodCandlestickInput))}`);
             }
             console.log("SMA 100 Period: " + (simpleMovingAverage100[simpleMovingAverage100.length - 1]).toFixed(8));
-            console.log("Upper Limit @Sigma Lvl. " + inputBB.stdDev + " = " + upper.toFixed(8));
-            console.log("Lower Limit @Sigma Lvl. " + inputBB.stdDev + " = " + lower.toFixed(8));
+            console.log("Upper Limit @Sigma Lvl. " + inputBB2.stdDev + " = " + upper.toFixed(8));
+            console.log("Lower Limit @Sigma Lvl. " + inputBB2.stdDev + " = " + lower.toFixed(8));
             console.log("Bollinger Bands Spread: " + colors.yellow((((bollingerSpread) - 1) * 100).toFixed(2) + " %"));
             console.log('RSI: ' + colors.yellow(rsi));
             console.log("ROC 5,10,20,40,99 period: " + colors.yellow(`${roc5.toFixed(2)}, ${roc10.toFixed(2)}, ${roc20.toFixed(2)}, ${roc40.toFixed(2)}, ${roc99.toFixed(2)} %`));
@@ -213,7 +221,50 @@ setInterval(function() {
         limit: 100,
         endTime: Date.now()
     });
-}, 4000);
+}, tradeInterval);
+
+
+//===============================================================================================================================
+//      COLLECT DATA
+//===============================================================================================================================
+
+
+// Intervals: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
+binance.candlesticks(tradePair, timeFrame, (error, ticks, symbol) => {
+  let last_tick = ticks[ticks.length - 1];
+  let [time, open, high, low, close, volume, closeTime, assetVolume, trades, buyBaseVolume, buyAssetVolume, ignored] = last_tick;
+  
+    Data.deleteMany({}, (err, result)=>{
+        if(err) {
+            console.log(err);
+        } else {
+            console.log(result);
+        }
+    });
+    
+    var newData = new Data();
+  
+    newData.time = time;
+    newData.open = open;
+    newData.high = high;
+    newData.low = low;
+    newData.close = close;
+    newData.closeTime = closeTime;
+    newData.assetVolume = assetVolume;
+    newData.trades = trades;
+    newData.buyBaseVolume = buyBaseVolume;
+    newData.buyAssetVolume = buyAssetVolume;
+  
+    newData.save((err, docs) => {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log(docs);
+        }
+    });
+  
+  
+}, {limit: 500, endTime: Date.now()});
 
 
 //===============================================================================================================================
