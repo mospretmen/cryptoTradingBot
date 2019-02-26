@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let DataSchema = new Schema({
+let Data30Schema = new Schema({
   
   time: Number,
   open: String,
@@ -18,4 +18,4 @@ let DataSchema = new Schema({
 
 
 // Export the model
-module.exports = mongoose.model('Data', DataSchema);
+module.exports = mongoose.model('Data30', Data30Schema);

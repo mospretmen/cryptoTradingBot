@@ -15,7 +15,8 @@ var bullish = require('technicalindicators').bullish;
 var bearish = require('technicalindicators').bearish;
 var asyncData = require("./asyncData.js");
 var mongoose = require('mongoose');
-var Data = require('./models/data.js');
+var Data15 = require('./models/data15.js');
+var Data30 = require('./models/data30.js');
 
 //===============================================================================================================================
 //      Binance CONFIG
@@ -66,7 +67,7 @@ app.use(express.static(__dirname + "/public"));
 
 let tradePair = 'TRXETH';
 let tradeQty = 150;
-let timeFrame = '5m'; // Trading Period: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
+let timeFrame = '15m'; // Trading Period: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
 let decimalPlaces = 0.00000001; // Number of decimal places on tradingPair
 let tradeInterval = 5000; // Interval of milliseconds bot will analyse price changes.
 
@@ -228,32 +229,34 @@ setInterval(function() {
 //      COLLECT DATA
 //===============================================================================================================================
 
+// Data15.deleteMany({}, (err, result)=>{
+//     if(err) {
+//         console.log(err);
+//     } else {
+//         console.log(result);
+//     }
+// });
+
 
 // Intervals: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
 binance.candlesticks(tradePair, timeFrame, (error, ticks, symbol) => {
   let last_tick = ticks[ticks.length - 1];
   let [time, open, high, low, close, volume, closeTime, assetVolume, trades, buyBaseVolume, buyAssetVolume, ignored] = last_tick;
-  
-    Data.deleteMany({}, (err, result)=>{
-        if(err) {
-            console.log(err);
-        } else {
-            console.log(result);
-        }
-    });
     
-    var newData = new Data();
+    var newData = new Data15();
   
-    newData.time = time;
-    newData.open = open;
-    newData.high = high;
-    newData.low = low;
-    newData.close = close;
-    newData.closeTime = closeTime;
-    newData.assetVolume = assetVolume;
-    newData.trades = trades;
-    newData.buyBaseVolume = buyBaseVolume;
-    newData.buyAssetVolume = buyAssetVolume;
+    // newData.time = time;
+    // newData.open = open;
+    // newData.high = high;
+    // newData.low = low;
+    // newData.close = close;
+    // newData.closeTime = closeTime;
+    // newData.assetVolume = assetVolume;
+    // newData.trades = trades;
+    // newData.buyBaseVolume = buyBaseVolume;
+    // newData.buyAssetVolume = buyAssetVolume;
+    
+    newData.data = ticks;
   
     newData.save((err, docs) => {
         if(err) {
@@ -262,9 +265,11 @@ binance.candlesticks(tradePair, timeFrame, (error, ticks, symbol) => {
           console.log(docs);
         }
     });
+    
+    console.log(Date.now());
   
   
-}, {limit: 500, endTime: Date.now()});
+}, {limit: 500, endTime: Date.now()-1000*60*15});
 
 
 //===============================================================================================================================
