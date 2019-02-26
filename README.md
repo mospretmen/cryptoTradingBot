@@ -33,7 +33,7 @@ Run front-end to dislpay your bot data.
 npm run index
 ```
 
-Refer to the node-binance-api below to for further instructions.
+Refer to the node-binance-api below for further instructions.
 ---------------------------------------------------------------------------
 
 
