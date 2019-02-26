@@ -1,3 +1,38 @@
+# Instructions
+Binance Crypto trading. TRX/ETH example...alter the pair on bot.js to trade a different pair.
+
+#### Installation
+```
+git clone https://github.com/mospretmen/cryptoTradingBot.git cryptoTradingBot
+cd cryptoTradingBot
+npm i --save
+```
+
+Create a file named app-env and include the info below with your binance API keys, run command source app-env.
+
+export APIKEY=xxxxxxxxxxxxxx
+export APISECRET=xxxxxxxxxxxxxxx
+
+```
+source app-env
+```
+
+Run the bot.
+
+```
+npm run bot
+```
+
+Run front-end to dislpay your bot data.
+
+```
+npm run index
+```
+
+Refer to the node-binance-api below to understand for further instructions.
+---------------------------------------------------------------------------
+
+
 [![Latest Version](https://img.shields.io/github/release/jaggedsoft/node-binance-api.svg?style=flat-square)](https://github.com/jaggedsoft/node-binance-api/releases) 
 [![GitHub last commit](https://img.shields.io/github/last-commit/jaggedsoft/node-binance-api.svg?maxAge=2400)](#)
 [![npm downloads](https://img.shields.io/npm/dt/node-binance-api.svg?maxAge=7200)](https://www.npmjs.com/package/node-binance-api)
