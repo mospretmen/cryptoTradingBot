@@ -65,8 +65,8 @@ app.use(express.static(__dirname + "/public"));
 
 ///////////////////////////////////////////////////////// TRX/ETH TRADING BOT ///////////////////////////////////////////////////////
 
-let tradePair = 'TRXETH';
-let tradeQty = 150;
+let tradePair = 'IOTAETH';
+let tradeQty = 5;
 let timeFrame = '15m'; // Trading Period: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
 let decimalPlaces = 0.00000001; // Number of decimal places on tradingPair
 let tradeInterval = 5000; // Interval of milliseconds bot will analyse price changes.
@@ -136,10 +136,10 @@ setInterval(function() {
         var lastPrice = +ticks[99][4];
 
         (async function data() {
-            let tradeHistoryData = await asyncData.tradeHistoryData.TRX();
+            let tradeHistoryData = await asyncData.tradeHistoryData.IOTA();
             let balances = await asyncData.getBalances();
             let prices = await asyncData.getPriceData();
-            let bidAsk = await asyncData.getBidAsk.TRX();
+            let bidAsk = await asyncData.getBidAsk.IOTA();
 
             let result = {
                 tradeHistoryData: tradeHistoryData,
@@ -150,19 +150,49 @@ setInterval(function() {
             return result;
         })().then((result) => {
             
+            console.log(result.balances.ETH.available)
+            
             // STRATEGY GOES HERE! Example below....use the node-binance-api functions on the README.md file to create strategy.
-            if (lastPrice < lower ) {
+            if (lastPrice < lower && rsi < 38) {
 
                 setTimeout(function() {
                     binance.cancelOrders(tradePair, (error, response, symbol) => {
                         console.log(symbol + " cancel response:", response);
                     });
-                    console.log(colors.cyan('Buy: accumulation, price < lower limit'));
-                    binance.buy(tradePair, tradeQty, Number(result.bidAsk.bidPrice) + +decimalPlaces);
-
+                    console.log(colors.cyan('Buy: last price < lower limit @ 2sigma'));
+                    binance.buy(tradePair, tradeQty, +result.bidAsk.bidPrice + +decimalPlaces);
                 }, 500);
-            // STRATEGY ENDS HERE!    
-
+                
+            } else if (lastPrice < bollingerBands3[bollingerBands3.length - 1].upper && rsi < 38) {
+                
+                setTimeout(function() {
+                    binance.cancelOrders(tradePair, (error, response, symbol) => {
+                        console.log(symbol + " cancel response:", response);
+                    });
+                    console.log(colors.cyan('Sell: last price < lower limit @ 2sigma'));
+                    binance.buy(tradePair, tradeQty, +result.bidAsk.bidPrice - +decimalPlaces);
+                }, 500);
+                
+            } else if (lastPrice > upper && rsi > 60) {
+                
+                setTimeout(function() {
+                    binance.cancelOrders(tradePair, (error, response, symbol) => {
+                        console.log(symbol + " cancel response:", response);
+                    });
+                    console.log(colors.cyan('Sell: last price < lower limit @ 2sigma'));
+                    binance.sell(tradePair, tradeQty, +result.bidAsk.bidPrice - +decimalPlaces);
+                }, 500);
+                
+            } else if (+result.balances.ETH.available < 0.05 ) {
+                
+                setTimeout(function() {
+                    binance.cancelOrders(tradePair, (error, response, symbol) => {
+                        console.log(symbol + " cancel response:", response);
+                    });
+                    console.log(colors.cyan('Sell: reduce risk, overbought'));
+                    binance.sell(tradePair, tradeQty * 3, +result.bidAsk.bidPrice - +decimalPlaces);
+                }, 500);
+                
             } else {
                 console.log('============================================================');
                 console.log(new Date().toLocaleString());

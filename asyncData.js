@@ -66,6 +66,38 @@ module.exports.tradeHistoryData = {
       }, 100);
     });
   },
+  IOTA: async function() {
+    return new Promise((resolve, reject)=>{
+      setTimeout(_=>{
+        
+        binance.trades("IOTAETH", (error, trades, symbol) => {
+        
+          var x =[];  
+          var buyPriceMultQty = [];
+          var buyQty = [];
+          var sellPriceMultQty = [];
+          var sellQty = [];
+          
+            for (var i = 0; i < trades.length; i++) {
+              if(trades[i].isBuyer === true) {
+                buyPriceMultQty.push(trades[i].price * trades[i].qty);
+                buyQty.push(trades[i].qty);
+              } else {
+                sellPriceMultQty.push(trades[i].price * trades[i].qty);
+                sellQty.push(trades[i].qty);
+              }
+            }
+            x.push(+(math.sum(buyPriceMultQty)/math.sum(buyQty)).toFixed(8));
+            x.push(math.sum(buyQty));
+            x.push(buyQty.length);
+            x.push(+(math.sum(sellPriceMultQty)/math.sum(sellQty)).toFixed(8));
+            x.push(math.sum(sellQty));
+            x.push(sellQty.length);
+            resolve(x);
+        });
+      }, 100);
+    });
+  },
   XRP: async function() {
     return new Promise((resolve, reject)=>{
       setTimeout(_=>{
@@ -173,6 +205,17 @@ module.exports.getBidAsk = {
       }, 100);
     });
   },
+  IOTA: async function() {
+    return new Promise((resolve, reject) => {
+      setTimeout(_=> {
+        
+        binance.bookTickers('IOTAETH',(error, ticker) => {
+          resolve(ticker);
+        });
+              
+      }, 100);
+    });
+  },
     TRX: async function() {
     return new Promise((resolve, reject) => {
       setTimeout(_=> {
@@ -225,3 +268,5 @@ module.exports.getMarketDepth = {
       });
     }
 };
+
+
