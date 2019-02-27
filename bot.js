@@ -17,6 +17,7 @@ var asyncData = require("./asyncData.js");
 var mongoose = require('mongoose');
 var Data15 = require('./models/data15.js');
 var Data30 = require('./models/data30.js');
+var numeral = require('numeral');
 
 //===============================================================================================================================
 //      MLAB DATABASE CONFIG 
@@ -69,7 +70,8 @@ let tradePair = 'IOTAETH';
 let tradeQty = 5;
 let timeFrame = '15m'; // Trading Period: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
 let decimalPlaces = 0.00000001; // Number of decimal places on tradingPair
-let tradeInterval = 5000; // Interval of milliseconds bot will analyse price changes.
+let tradeInterval = 10000; // Interval of milliseconds bot will analyse price changes.
+let totalETHInvested = 0.4;
 
 setInterval(function() {
     binance.candlesticks(tradePair, timeFrame, (error, ticks, symbol) => {
@@ -150,8 +152,6 @@ setInterval(function() {
             return result;
         })().then((result) => {
             
-            console.log(result.balances.ETH.available)
-            
             // STRATEGY GOES HERE! Example below....use the node-binance-api functions on the README.md file to create strategy.
             if (lastPrice < lower && rsi < 38) {
 
@@ -160,7 +160,7 @@ setInterval(function() {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Buy: last price < lower limit @ 2sigma'));
-                    binance.buy(tradePair, tradeQty, +result.bidAsk.bidPrice + +decimalPlaces);
+                    binance.buy(tradePair, tradeQty, lastPrice);
                 }, 500);
                 
             } else if (lastPrice < bollingerBands3[bollingerBands3.length - 1].upper && rsi < 38) {
@@ -170,7 +170,7 @@ setInterval(function() {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Sell: last price < lower limit @ 2sigma'));
-                    binance.buy(tradePair, tradeQty, +result.bidAsk.bidPrice - +decimalPlaces);
+                    binance.buy(tradePair, tradeQty, lastPrice);
                 }, 500);
                 
             } else if (lastPrice > upper && rsi > 60) {
@@ -180,7 +180,7 @@ setInterval(function() {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Sell: last price < lower limit @ 2sigma'));
-                    binance.sell(tradePair, tradeQty, +result.bidAsk.bidPrice - +decimalPlaces);
+                    binance.sell(tradePair, tradeQty, lastPrice);
                 }, 500);
                 
             } else if (+result.balances.ETH.available < 0.05 ) {
@@ -190,7 +190,7 @@ setInterval(function() {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Sell: reduce risk, overbought'));
-                    binance.sell(tradePair, tradeQty * 3, +result.bidAsk.bidPrice - +decimalPlaces);
+                    binance.sell(tradePair, tradeQty * 3, lastPrice);
                 }, 500);
                 
             } else {
@@ -213,9 +213,9 @@ setInterval(function() {
                 console.log("Last Close: " + Number(ticks[99][4]).toFixed(8));
             }
             if (bullish(fivePeriodCandlestickInput) === true) {
-                console.log(`Candlestick Pattern Bullish?: ${colors.green(bullish(fivePeriodCandlestickInput))}`);
+                console.log(`Candlestick Pattern Bullish?: ${colors.green(bullish(fivePeriodCandlestickInput)).bold}`);
             } else {
-                console.log(`Candlestick Pattern Bullish?: ${colors.red(bullish(fivePeriodCandlestickInput))}`);
+                console.log(`Candlestick Pattern Bullish?: ${colors.red(bullish(fivePeriodCandlestickInput)).bold}`);
             }
             console.log("SMA 100 Period: " + (simpleMovingAverage100[simpleMovingAverage100.length - 1]).toFixed(8));
             console.log("Upper Limit @Sigma Lvl. " + inputBB2.stdDev + " = " + upper.toFixed(8));
@@ -240,8 +240,20 @@ setInterval(function() {
             } else {
                 console.log("Avg MKT_Maker Spread: " + colors.red(mktMakerProfitOrLoss + ' %').bold);
             }
-
             console.log('------------------------------------------------------------' + "\n");
+            console.log(colors.underline('ACCOUNT DATA =>'));
+            console.log(`ETH balance: ${result.balances.ETH.available}`);
+            console.log(`IOTA balance: ${result.balances.IOTA.available} or ${(result.balances.IOTA.available*lastPrice).toFixed(2)} ETH`);
+            console.log(`Total ETH Invested: ${totalETHInvested}`);
+            var totalETHBalance = (+result.balances.ETH.available + +result.balances.IOTA.available*lastPrice).toFixed(2);
+            console.log(`Total ETH balance: ${totalETHBalance}`);
+            if(((+totalETHBalance/+totalETHInvested)-1) < 0) {
+                console.log(`ROI: ${colors.red(numeral((+totalETHBalance/+totalETHInvested)-1).format('%0.00')).bold}`);
+            } else {
+                console.log(`ROI: ${colors.green(numeral((+totalETHBalance/+totalETHInvested)-1).format('%0.00')).bold}`);
+            }
+            console.log('------------------------------------------------------------' + "\n");
+            
             binance.openOrders(false, (error, openOrders) => {
                 console.log("openOrders()", openOrders);
             });
