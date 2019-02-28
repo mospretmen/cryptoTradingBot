@@ -74,6 +74,7 @@ let tradeInterval = 10000; // Interval of milliseconds bot will analyse price ch
 let totalETHInvested = 0.4;
 
 setInterval(function() {
+    
     binance.candlesticks(tradePair, timeFrame, (error, ticks, symbol) => {
         
         // console.log("candlesticks()", ticks, ticks[19][4]);
@@ -190,7 +191,7 @@ setInterval(function() {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Sell: reduce risk, overbought'));
-                    binance.sell(tradePair, tradeQty * 3, lastPrice);
+                    binance.sell(tradePair, tradeQty * 5, +result.bidAsk.ask - +decimalPlaces);
                 }, 500);
                 
             } else {
