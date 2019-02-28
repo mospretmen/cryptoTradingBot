@@ -164,36 +164,6 @@ setInterval(function() {
                     binance.buy(tradePair, tradeQty, lastPrice);
                 }, 500);
                 
-            } else if (lastPrice < bollingerBands3[bollingerBands3.length - 1].upper && rsi < 38) {
-                
-                setTimeout(function() {
-                    binance.cancelOrders(tradePair, (error, response, symbol) => {
-                        console.log(symbol + " cancel response:", response);
-                    });
-                    console.log(colors.cyan('Sell: last price < lower limit @ 2sigma'));
-                    binance.buy(tradePair, tradeQty, lastPrice);
-                }, 500);
-                
-            } else if (lastPrice > upper && rsi > 60) {
-                
-                setTimeout(function() {
-                    binance.cancelOrders(tradePair, (error, response, symbol) => {
-                        console.log(symbol + " cancel response:", response);
-                    });
-                    console.log(colors.cyan('Sell: last price < lower limit @ 2sigma'));
-                    binance.sell(tradePair, tradeQty, lastPrice);
-                }, 500);
-                
-            } else if (+result.balances.ETH.available < 0.05 ) {
-                
-                setTimeout(function() {
-                    binance.cancelOrders(tradePair, (error, response, symbol) => {
-                        console.log(symbol + " cancel response:", response);
-                    });
-                    console.log(colors.cyan('Sell: reduce risk, overbought'));
-                    binance.sell(tradePair, tradeQty * 3, lastPrice);
-                }, 500);
-                
             } else {
                 console.log('============================================================');
                 console.log(new Date().toLocaleString());
