@@ -253,7 +253,7 @@ setInterval(function() {
             }
             console.log('------------------------------------------------------------' + "\n");
             
-            // Verify Date fo Last logged Balance.
+            // Verify Date of Last logged Balance.
             var lastBalDate = BalanceHist.find({'date': moment().format("MMM Do YY")},(err, docs)=>{
                 if(err) { 
                     console.log(err); 
