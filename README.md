@@ -8,11 +8,12 @@ cd cryptoTradingBot
 npm i --save
 ```
 
-Create a file named app-env and include the info below with your binance API keys.
+Create a file named app-env and include the info below with your binance API & MLab (MongoDB) keys.
 
 ```
 export APIKEY=xxxxxxxxxxxxxx
 export APISECRET=xxxxxxxxxxxxxxx
+export MLAB=xxxxxxxxxxxxxxx
 ```
 
 Run command below.

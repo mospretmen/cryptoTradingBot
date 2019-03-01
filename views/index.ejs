@@ -1,5 +1,11 @@
 <% include partials/header %>
 
+<% 
+  function s(x) {
+    return JSON.stringify(x);
+  }
+%>
+
 <center>
   <div class="ui container">
     <div class="ui equal width grid">
@@ -12,9 +18,118 @@
     </div>
     <div class="ui divider"></div>
     
-    Performance Data here...
+    <div>
+      <%= docs2 %>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+    <canvas id="line-chart" width="800" height="450"></canvas>
+    
+    <%
+    
+    var unix = [];
+    var high = [];
+    var low = [];
+  
+    for (var i =0; i < docs[0].data.length; i++) {
+      unix.push(docs[0].data[i][0]);
+      high.push(+docs[0].data[i][2]);
+      low.push(+docs[0].data[i][3]);
+    }
+
+    %>
+
+    <script>
+      new Chart(document.getElementById("line-chart"), {
+        type: 'line',
+        data: {
+          labels: [<%= unix %>],
+          datasets: [{ 
+              data: [<%= high %>],
+              label: "High",
+              borderColor: "#333333",
+              fill: false
+            }, { 
+              data: [<%= low %>],
+              label: "Low",
+              borderColor: "#333333",
+              fill: false
+            }
+          ]
+        },
+        options: {
+          title: {
+            display: false,
+            text: 'Recent Trades'
+          },
+          elements: {
+            line: {
+                tension: 0,// disables bezier curves
+                borderWidth: 1
+              },
+            point: {
+                radius: 0 
+              }
+          },
+          legend: {
+            position: 'bottom',
+            labels: {
+              fontSize: 10
+            }
+          },
+          scales: {
+            xAxes: [{
+                    ticks: {
+                      fontSize: 0
+                    }
+                  }],
+            yAxes: [{
+                    ticks: {
+                      fontSize: 8
+                    }
+                  }]     
+          }
+        }
+      });
+    </script>
+    
+  <br>
+  <div>
+
+    <p>Most Recent trades...</p>
+    <table style="font-size: smaller" class="ui very compact basic unstackable striped table">
+      <thead>
+        <tr>
+          <th>orderId</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Time</th>
+          <th>isBuyer</th>
+          <th>isMaker</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      <%
+        for (var i=0; i < 10; i++) {
+      %>
+        <tr>
+          <td><%= s(trades[i].orderId) %></td>
+          <td><%= s(trades[i].price) %></td>
+          <td><%= numeral(s(trades[i].qty)).format('0.0') %></td>
+          <td><%= moment.unix(s(+trades[i].time/1000)).format('MM/DD/YYYY hh:mm:ss') %></td>
+          <td><%= s(trades[i].isBuyer) %></td>
+          <td><%= s(trades[i].isMaker) %></td>
+        </tr>
+        
+      <% } %>  
+      </tbody>
+    </table>
+  </div>
+  
+  <br>
       
-    </div> 
+  </div>
 
 
 <% include partials/footer %>
