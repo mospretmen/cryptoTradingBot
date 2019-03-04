@@ -151,7 +151,10 @@ setInterval(function() {
             return result;
         })().then((result) => {
             
-            // STRATEGY GOES HERE! Example below....use the node-binance-api functions on the README.md file to create strategy.
+            var optimalBuyPrice = math.max(lastPrice, +result.bidAsk.bidPrice + +decimalPlaces);
+            var optimalSellPrice = math.min(lastPrice, +result.bidAsk.askPrice - +decimalPlaces);
+            
+            // STRATEGY STARTS HERE! Example below....use the node-binance-api functions on the README.md file to create strategy.
             if (lastPrice < lower && rsi < 38) {
 
                 setTimeout(function() {
@@ -159,17 +162,27 @@ setInterval(function() {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Buy: last price < lower limit @ 2sigma'));
-                    binance.buy(tradePair, tradeQty, lastPrice);
+                    binance.buy(tradePair, tradeQty, optimalBuyPrice);
                 }, 500);
                 
-            } else if (lastPrice < bollingerBands3[bollingerBands3.length - 1].upper && rsi < 38) {
+            } else if (lastPrice < bollingerBands3[bollingerBands3.length - 1].lower && rsi < 30) {
                 
                 setTimeout(function() {
                     binance.cancelOrders(tradePair, (error, response, symbol) => {
                         console.log(symbol + " cancel response:", response);
                     });
-                    console.log(colors.cyan('Sell: last price < lower limit @ 2sigma'));
-                    binance.buy(tradePair, tradeQty, lastPrice);
+                    console.log(colors.cyan('Buy: last price < lower limit @ 3sigma'));
+                    binance.buy(tradePair, tradeQty, optimalBuyPrice);
+                }, 500);
+            
+            } else if (rsi < 20) {
+                
+                setTimeout(function() {
+                    binance.cancelOrders(tradePair, (error, response, symbol) => {
+                        console.log(symbol + " cancel response:", response);
+                    });
+                    console.log(colors.cyan('Strong Buy: RSI < 20'));
+                    binance.buy(tradePair, tradeQty * 3, +result.bidAsk.askPrice);
                 }, 500);
                 
             } else if (lastPrice > upper && rsi > 60) {
@@ -179,7 +192,17 @@ setInterval(function() {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Sell: last price < lower limit @ 2sigma'));
-                    binance.sell(tradePair, tradeQty, lastPrice);
+                    binance.sell(tradePair, tradeQty, optimalSellPrice);
+                }, 500);
+            
+            } else if (rsi > 80) {
+                
+                setTimeout(function() {
+                    binance.cancelOrders(tradePair, (error, response, symbol) => {
+                        console.log(symbol + " cancel response:", response);
+                    });
+                    console.log(colors.cyan('Strong Sell: RSI > 80'));
+                    binance.sell(tradePair, tradeQty * 3, +result.bidAsk.bidPrice);
                 }, 500);
                 
             } else if (+result.balances.ETH.available < 0.05 ) {
@@ -189,8 +212,20 @@ setInterval(function() {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Sell: reduce risk, overbought'));
-                    binance.sell(tradePair, tradeQty * 5, +result.bidAsk.ask - +decimalPlaces);
+                    binance.sell(tradePair, tradeQty * 5, +result.bidAsk.askPrice - +decimalPlaces);
                 }, 500);
+                
+            //STRATEGY ENDS HERE.
+                
+            // } else if (+result.balances.BNB.available < 0.5 ) {
+                
+            //     setTimeout(function() {
+            //         binance.cancelOrders(tradePair, (error, response, symbol) => {
+            //             console.log(symbol + " cancel response:", response);
+            //         });
+            //         console.log(colors.cyan('Buying more BNB for fees.'));
+            //         binance.buy('BNBETH', 0.5, +result.bidAsk.askPrice - +decimalPlaces);
+            //     }, 500);
                 
             } else {
                 console.log('============================================================');
@@ -246,6 +281,7 @@ setInterval(function() {
             console.log(`Total ETH Invested: ${totalETHInvested}`);
             var totalETHBalance = (+result.balances.ETH.available + +result.balances.IOTA.available*lastPrice).toFixed(3);
             console.log(`Total ETH balance: ${totalETHBalance}`);
+            console.log(`Total BNB balance: ${numeral(+result.balances.BNB.available).format('0.00')}`);
             if(((+totalETHBalance/+totalETHInvested)-1) < 0) {
                 console.log(`ROI: ${colors.red(numeral((+totalETHBalance/+totalETHInvested)-1).format('%0.000')).bold}`);
             } else {
@@ -253,32 +289,6 @@ setInterval(function() {
             }
             console.log('------------------------------------------------------------' + "\n");
             
-            // Verify Date fo Last logged Balance.
-            var lastBalDate = BalanceHist.find({'date': moment().format("MMM Do YY")},(err, docs)=>{
-                if(err) { 
-                    console.log(err); 
-                } else {
-                    return docs[docs.length -1].date;
-                }
-            });
-            
-            if (lastBalDate === moment().format("MMM Do YY")) {
-            
-                //Save Balance History to Database
-                var newBalanceData = new BalanceHist();
-                
-                newBalanceData.totalETHInvested = totalETHInvested;
-                newBalanceData.totalETHBalance = totalETHBalance;
-                newBalanceData.date = moment().format("MMM Do YY");
-                
-                newBalanceData.save((err, docs)=> {
-                    if(err) {
-                        console.log(err);
-                    } else {
-                        return docs;
-                    }
-                });
-            }
             
             binance.openOrders(false, (error, openOrders) => {
                 console.log("openOrders()", openOrders);
