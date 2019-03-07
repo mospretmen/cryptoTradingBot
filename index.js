@@ -56,7 +56,7 @@ app.get('/', (req, res) => {
     
         binance.trades('IOTAETH', (error, trades, symbol) => {
         
-        Data15mLast500.find({}, function(err, docs){
+        Data15mLast500.find({}).exec(function(err, docs){
             if (err) return err;
             Data15m.find({}, function(err, docs2){
                 if (err) return err;

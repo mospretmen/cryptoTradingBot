@@ -18,10 +18,6 @@
     </div>
     <div class="ui divider"></div>
     
-    <div>
-      <%= docs2 %>
-    </div>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
     <canvas id="line-chart" width="800" height="450"></canvas>
     
@@ -95,6 +91,8 @@
     
   <br>
   <div>
+    
+  <canvas id="line-chart2" width="800" height="450"></canvas>
 
     <p>Most Recent trades...</p>
     <table style="font-size: smaller" class="ui very compact basic unstackable striped table">
@@ -111,7 +109,18 @@
       <tbody>
         
       <%
-        for (var i=0; i < 10; i++) {
+        var time =[];
+        var buy =[];
+        var sell =[];
+        
+        for (var i=trades.length -50; i < trades.length; i++) {
+          time.push((trades[i].time/1000));
+          if(trades[i].isBuyer === true) {
+            buy.push(trades[i].price)
+          } else {
+            sell.push(trades[i].price)
+          }
+          
       %>
         <tr>
           <td><%= s(trades[i].orderId) %></td>
@@ -126,6 +135,62 @@
       </tbody>
     </table>
   </div>
+
+  <script>
+    new Chart(document.getElementById("line-chart2"), {
+      type: 'line',
+      data: {
+        labels: [<%= time %>],
+        datasets: [{ 
+            data: [<%= buy %>],
+            label: "Buy",
+            borderColor: "#2ab238",
+            fill: false,
+            showLine: false 
+          }, { 
+            data: [<%= sell %>],
+            label: "Sell",
+            borderColor: "#b22a2a",
+            fill: false,
+            showLine: false 
+          }
+        ]
+      },
+      options: {
+        title: {
+          display: false,
+          text: 'Recent Trades'
+        },
+        elements: {
+          line: {
+              tension: 0,// disables bezier curves
+              borderWidth: 1
+            },
+          point: {
+              radius: 2 
+            }
+        },
+        legend: {
+          position: 'bottom',
+          labels: {
+            fontSize: 10
+          }
+        },
+        scales: {
+          xAxes: [{
+                  ticks: {
+                    fontSize: 5
+                  }
+                }],
+          yAxes: [{
+                  ticks: {
+                    fontSize: 8
+                  }
+                }]     
+        }
+      }
+    });
+  </script>
   
   <br>
       
