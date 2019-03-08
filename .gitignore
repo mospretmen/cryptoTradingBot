@@ -2,5 +2,3 @@ node_modules/
 .env
 npm-debug.log
 app-env
-*.js
-usefulCode.js
