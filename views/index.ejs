@@ -113,7 +113,7 @@
         var buy =[];
         var sell =[];
         
-        for (var i=trades.length -50; i < trades.length; i++) {
+        for (var i=trades.length -60; i < trades.length; i++) {
           time.push((trades[i].time/1000));
           if(trades[i].isBuyer === true) {
             buy.push(trades[i].price)

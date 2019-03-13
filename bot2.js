@@ -301,33 +301,6 @@ setInterval(function() {
             }
             console.log('------------------------------------------------------------' + "\n");
             
-            // Verify Date of Last logged Balance.
-            var lastBalDate = BalanceHist.find().sort({ _id: -1 }).exec((err, docs)=>{
-                if(err) { 
-                    console.log(err); 
-                } else {
-                    console.log(docs[docs.length -1].date);
-                }
-            });
-            
-            // if (lastBalDate != moment().format("MMM Do YY")) {
-            
-            //     //Save Balance History to Database
-            //     var newBalanceData = new BalanceHist();
-                
-            //     newBalanceData.totalETHInvested = totalETHInvested;
-            //     newBalanceData.totalETHBalance = totalETHBalance;
-            //     newBalanceData.date = moment().format("MMM Do YY");
-                
-            //     newBalanceData.save((err, docs)=> {
-            //         if(err) {
-            //             console.log(err);
-            //         } else {
-            //             return docs;
-            //         }
-            //     });
-            // }
-            
             binance.openOrders(false, (error, openOrders) => {
                 console.log("openOrders()", openOrders);
             });
