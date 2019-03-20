@@ -83,7 +83,7 @@ let tradeQty = 5;
 let timeFrame = '15m'; // Trading Period: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
 let decimalPlaces = 0.00000001; // Number of decimal places on tradingPair
 let tradeInterval = 10000; // Interval of milliseconds bot will analyse price changes. Needs to be > 1000, due to Exchange API limits.
-let totalETHInvested = 0.43; // ETH invested
+let totalETHInvested = 0.43; // ETH invested 2/19/2019
 
 setInterval(function() {
     
@@ -203,7 +203,7 @@ setInterval(function() {
                     binance.cancelOrders(tradePair, (error, response, symbol) => {
                         console.log(symbol + " cancel response:", response);
                     });
-                    console.log(colors.cyan('Sell: last price < lower limit @ 2sigma'));
+                    console.log(colors.cyan('Sell: last price > upper limit @ 2sigma'));
                     binance.sell(tradePair, tradeQty, optimalSellPrice);
                 }, 500);
             
