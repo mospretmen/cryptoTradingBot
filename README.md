@@ -8,6 +8,11 @@
 
 > A cryptocurrency trading bot for the binance exchange
 
+## Requirements
+
+> A Binance Account and API Keys
+> MLAB Account and API keys
+
 ## Install
 
 ```sh
@@ -18,6 +23,16 @@ npm i
 ```
 
 ## API Keys
+
+> Create a file named app-env on your cryptoTradingBot Folder with the format below and your api keys. 
+
+```sh
+export APIKEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+export APISECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+export MLAB=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+> Run the command below. 
 
 ```sh
 source app-env
@@ -35,11 +50,10 @@ npm run bot
 npm run bot2
 ```
 
-## Run tests
+## Binance API reference and Technical Indicators library
 
-```sh
-npm run test
-```
+[Binance API](https://github.com/jaggedsoft/node-binance-api)
+[Technical Indicators Library](https://www.npmjs.com/package/technicalindicators)
 
 ## Author
 
@@ -52,4 +66,4 @@ npm run test
 Give a ⭐️ if this project helped you!
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+_developed with ❤️ by mospretmen_
