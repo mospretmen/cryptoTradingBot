@@ -31,6 +31,7 @@
     "nodemon": "^1.18.8",
     "numeral": "^2.0.6",
     "passport": "^0.4.0",
+    "readme-md-generator": "^0.3.0",
     "technicalindicators": "^2.0.7",
     "uninstall": "0.0.0",
     "validator": "^10.8.0",
