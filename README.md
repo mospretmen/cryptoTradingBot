@@ -6,7 +6,7 @@
   </a>
 </p>
 
-> A cryptocurrency trading bot for the binance exchange
+> A cryptocurrency trading bot for the binance exchange. Warning: There are no guarantees of profit if use this bot, always keep your API keys safe.
 
 ## Requirements
 
