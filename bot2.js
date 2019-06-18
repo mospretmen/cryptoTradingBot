@@ -24,7 +24,6 @@ var numeral = require('numeral');
 //      MLAB DATABASE CONFIG 
 //===============================================================================================================================
 
-
 const dbRoute = process.env.MLAB;
 mongoose.connect(dbRoute, { useNewUrlParser: true});
 let db = mongoose.connection;
@@ -32,11 +31,9 @@ let db = mongoose.connection;
 db.once('open', () => console.log('db connected'));
 db.on('error', console.error.bind(console, 'monogdb connection error:'));
 
-
 //===============================================================================================================================
 //      Binance CONFIG
 //===============================================================================================================================
-
 
 const binance = require('node-binance-api')().options({
     APIKEY: process.env.APIKEY,
@@ -45,45 +42,22 @@ const binance = require('node-binance-api')().options({
     test: false // If you want to use sandbox mode where orders are simulated
 });
 
-
-//===============================================================================================================================
-//      BodyParser + MethodOverride + EJS CONFIG
-//===============================================================================================================================
-
-
-app.set("view engine", "ejs");
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-app.use(methodOverride("_method"));
-app.use(express.static(__dirname + "/public"));
-
-//===============================================================================================================================
-//      CoinMarketCap API
-//===============================================================================================================================
-
-// const CoinMarketCap = require('coinmarketcap-api');
- 
-// const apiKey = 'process.env.CoinMarketCap';
-// const client = new CoinMarketCap(apiKey);
- 
-// setInterval( 
-
-//     client.getQuotes({symbol: ['BTC', 'ETH']}).then(console.log).catch(console.error)
-
-// , 10000);
-
 //===============================================================================================================================
 //      Binance API - IOTA ETH BOT
 //===============================================================================================================================
 
-let tradePair = 'IOTAETH';
-let tradeQty = 5;
+let tradePair = 'IOTAETH'; // Pair you want to trade.
+let tradeQty = 10; // Qty you want to trade.
 let timeFrame = '15m'; // Trading Period: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
 let decimalPlaces = 0.00000001; // Number of decimal places on tradingPair
 let tradeInterval = 10000; // Interval of milliseconds bot will analyse price changes. Needs to be > 1000, due to Exchange API limits.
-let totalETHInvested = 0.43; // ETH invested
+let totalETHInvested = 4.1; // Total invested.
+let sinceInception = moment("20190618", "YYYYMMDD").fromNow(); // Date you started investing.   
+
+// Function to eliminate fl
+function strip(number) {
+    return (parseFloat(number).toPrecision(6));
+}
 
 setInterval(function() {
     
@@ -100,7 +74,7 @@ setInterval(function() {
             arrayVolume.push(+ticks[i][5]);
         }
 
-        // Available parameters to use with Trading strategy (RSI, BolingerBand, SMA, etc...) Look at the technical indicators library for more indicators.
+        // Available parameters to use with Trading strategy (RSI, BolingerBand, SMA, etc...) Google npm technical indicators library for more indicators.
         var fivePeriodCandlestickInput = {
             open: [+ticks[194][1], +ticks[195][1], +ticks[196][1], +ticks[197][1], +ticks[198][1]],
             high: [+ticks[194][2], +ticks[195][2], +ticks[196][2], +ticks[197][2], +ticks[198][2]],
@@ -126,6 +100,7 @@ setInterval(function() {
             values: array200Period,
             stdDev: 3
         };
+        
         //Calculate RSI (Relative Strength Index), BollingerBands, SMA (Simple Moving Average), ROC (Rate of Change).
         var rsi = RSI.calculate(inputRSI)[RSI.calculate(inputRSI).length - 1];
         var bollingerBands1 = BB.calculate(inputBB1);
@@ -163,10 +138,11 @@ setInterval(function() {
             return result;
         })().then((result) => {
             
-            var optimalBuyPrice = math.max(lastPrice, +result.bidAsk.bidPrice + +decimalPlaces);
-            var optimalSellPrice = math.min(lastPrice, +result.bidAsk.askPrice - +decimalPlaces);
+            // Optimal Buy & Sell Prices.
+            var optimalBuyPrice = strip(math.max(lastPrice, +result.bidAsk.bidPrice + +decimalPlaces));
+            var optimalSellPrice = strip(math.min(lastPrice, +result.bidAsk.askPrice - +decimalPlaces));
             
-            // STRATEGY STARTS HERE! Example below....use the node-binance-api functions on the README.md file to create strategy.
+            // STRATEGY STARTS HERE! Once condition is met, current order is canceled and new order is placed.
             if (lastPrice < lower && rsi < 38) {
 
                 setTimeout(function() {
@@ -194,7 +170,7 @@ setInterval(function() {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Strong Buy: RSI < 20'));
-                    binance.buy(tradePair, tradeQty * 3, +result.bidAsk.askPrice);
+                    binance.buy(tradePair, tradeQty * 3, strip(+result.bidAsk.askPrice));
                 }, 500);
                 
             } else if (lastPrice > upper && rsi > 60) {
@@ -203,7 +179,7 @@ setInterval(function() {
                     binance.cancelOrders(tradePair, (error, response, symbol) => {
                         console.log(symbol + " cancel response:", response);
                     });
-                    console.log(colors.cyan('Sell: last price < lower limit @ 2sigma'));
+                    console.log(colors.cyan('Sell: last price > upper limit @ 2sigma'));
                     binance.sell(tradePair, tradeQty, optimalSellPrice);
                 }, 500);
             
@@ -214,21 +190,21 @@ setInterval(function() {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Strong Sell: RSI > 80'));
-                    binance.sell(tradePair, tradeQty * 3, +result.bidAsk.bidPrice);
+                    binance.sell(tradePair, tradeQty * 3, strip(+result.bidAsk.bidPrice));
                 }, 500);
                 
-            } else if (+result.balances.ETH.available < 0.04 ) {
+            } else if (+result.balances.ETH.available < 0.02 ) {
                 
                 setTimeout(function() {
                     binance.cancelOrders(tradePair, (error, response, symbol) => {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Sell: reduce risk, overbought'));
-                    binance.sell(tradePair, +(+result.balances.IOTA.available * 0.15).toFixed(0), +result.bidAsk.askPrice - +decimalPlaces);
+                    binance.sell(tradePair, +(+result.balances.IOTA.available * 0.25).toFixed(0), strip(+result.bidAsk.askPrice - +decimalPlaces));
                 }, 500);
-                
             // STRATEGY ENDS HERE.
-                
+            
+            // Place BNB order for exchange fees.
             } else if (+result.balances.BNB.available < 0.5 ) {
                 
                 setTimeout(function() {
@@ -239,6 +215,7 @@ setInterval(function() {
                     binance.buy('BNBETH', 0.5, +result.bidAsk.askPrice - +decimalPlaces);
                 }, 500);
                 
+            // Logs all information to the console.    
             } else {
                 console.log('============================================================');
                 console.log(new Date().toLocaleString());
@@ -278,7 +255,7 @@ setInterval(function() {
                 `Total Qty Sold: ${result.tradeHistoryData[4]} \n` +
                 `Weighted Buy Price: ${result.tradeHistoryData[0]} \n` +
                 `Weighted Sell Price: ${result.tradeHistoryData[3]} \n` +
-                'Total Profit/Loss: ' + ((+result.tradeHistoryData[3] - +result.tradeHistoryData[0]) * Math.min(Number(math.sum(+result.tradeHistoryData[4])), Number(math.sum(+result.tradeHistoryData[1])))).toFixed(4) + ' ETH');
+                'Total Profit/Loss: Ξ ' + ((+result.tradeHistoryData[3] - +result.tradeHistoryData[0]) * Math.min(Number(math.sum(+result.tradeHistoryData[4])), Number(math.sum(+result.tradeHistoryData[1])))).toFixed(4));
 
             var mktMakerProfitOrLoss = Number((((((result.tradeHistoryData[3]) / result.tradeHistoryData[0]) - 1) * 100) - 0.2).toFixed(2));
             if (mktMakerProfitOrLoss > 0) {
@@ -288,19 +265,20 @@ setInterval(function() {
             }
             console.log('------------------------------------------------------------' + "\n");
             console.log(colors.underline.cyan('Account Data =>').bgBlack.bold);
-            console.log(`ETH balance: ${numeral(result.balances.ETH.available).format('0.000')}`);
-            console.log(`IOTA balance: ${numeral(result.balances.IOTA.available).format('0.0')} or ${(result.balances.IOTA.available*lastPrice).toFixed(2)} ETH`);
-            console.log(`Total ETH Invested: ${totalETHInvested}`);
+            console.log(`ETH balance: Ξ ${numeral(result.balances.ETH.available).format('0.000')}`);
+            console.log(`IOTA balance: ${numeral(result.balances.IOTA.available).format('0.0')} miota || Ξ ${(result.balances.IOTA.available*lastPrice).toFixed(2)}`);
+            console.log(`Total Invested: Ξ ${totalETHInvested}`);
             var totalETHBalance = (+result.balances.ETH.available + +result.balances.IOTA.available*lastPrice).toFixed(3);
-            console.log(`Total ETH balance: ${totalETHBalance}`);
+            console.log(`Total balance: Ξ ${totalETHBalance} || $ ${(totalETHBalance * result.prices.ETHUSDT).toFixed(0)} USD`);
             console.log(`Total BNB balance: ${numeral(+result.balances.BNB.available).format('0.00')}`);
             if(((+totalETHBalance/+totalETHInvested)-1) < 0) {
                 console.log(`ROI: ${colors.red(numeral((+totalETHBalance/+totalETHInvested)-1).format('%0.000')).bold}`);
             } else {
                 console.log(`ROI: ${colors.green(numeral((+totalETHBalance/+totalETHInvested)-1).format('%0.000')).bold}`);
             }
+            console.log(`Since Inception: ${sinceInception}`);
             console.log('------------------------------------------------------------' + "\n");
-            
+
             binance.openOrders(false, (error, openOrders) => {
                 console.log("openOrders()", openOrders);
             });
@@ -315,75 +293,74 @@ setInterval(function() {
 
 
 //===============================================================================================================================
-//      COLLECT DATA
+//      COLLECT DATA - NOT IN USE
 //===============================================================================================================================
 
-setInterval(()=> {
-    // Intervals: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
-    binance.candlesticks(tradePair, timeFrame, (error, ticks, symbol) => {
-      let last_tick = ticks[ticks.length - 1];
-      let [time, open, high, low, close, volume, closeTime, assetVolume, trades, buyBaseVolume, buyAssetVolume, ignored] = last_tick;
+// setInterval(()=> {
+//     // Intervals: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
+//     binance.candlesticks(tradePair, timeFrame, (error, ticks, symbol) => {
+//       let last_tick = ticks[ticks.length - 1];
+//       let [time, open, high, low, close, volume, closeTime, assetVolume, trades, buyBaseVolume, buyAssetVolume, ignored] = last_tick;
         
-        var newData = new Data15m();
+//         var newData = new Data15m();
       
-        newData.date = moment.unix(+time/1000).format("YYYY-MM-DD");
-        newData.time = moment.unix(+time/1000).format('LTS');
-        newData.closeTime = moment.unix(+closeTime/1000).format('LTS');
-        newData.open = open;
-        newData.high = high;
-        newData.low = low;
-        newData.close = close;
-        newData.assetVolume = assetVolume;
-        newData.trades = trades;
-        newData.buyBaseVolume = buyBaseVolume;
-        newData.buyAssetVolume = buyAssetVolume;
+//         newData.date = moment.unix(+time/1000).format("YYYY-MM-DD");
+//         newData.time = moment.unix(+time/1000).format('LTS');
+//         newData.closeTime = moment.unix(+closeTime/1000).format('LTS');
+//         newData.open = open;
+//         newData.high = high;
+//         newData.low = low;
+//         newData.close = close;
+//         newData.assetVolume = assetVolume;
+//         newData.trades = trades;
+//         newData.buyBaseVolume = buyBaseVolume;
+//         newData.buyAssetVolume = buyAssetVolume;
         
-        // newData.data = ticks;
+//         // newData.data = ticks;
       
-        newData.save((err, docs) => {
-            if(err) {
-              console.log(err);
-            } else {
-              return docs;
-            }
-        });
+//         newData.save((err, docs) => {
+//             if(err) {
+//               console.log(err);
+//             } else {
+//               return docs;
+//             }
+//         });
       
-    }, {limit: 500, endTime: Date.now() });
-}, 1000*60*15);
+//     }, {limit: 500, endTime: Date.now() });
+// }, 1000*60*15);
 
-Data15mLast500.deleteMany({}, (err, result)=>{
-    if(err) {
-        console.log(err);
-    } else {
-        console.log(result);
-    }
-});
+// Data15mLast500.deleteMany({}, (err, result)=>{
+//     if(err) {
+//         console.log(err);
+//     } else {
+//         console.log(result);
+//     }
+// });
 
-// Intervals: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
-binance.candlesticks(tradePair, timeFrame, (error, ticks, symbol) => {
-  let last_tick = ticks[ticks.length - 1];
-  let [time, open, high, low, close, volume, closeTime, assetVolume, trades, buyBaseVolume, buyAssetVolume, ignored] = last_tick;
+// // Intervals: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
+// binance.candlesticks(tradePair, timeFrame, (error, ticks, symbol) => {
+//   let last_tick = ticks[ticks.length - 1];
+//   let [time, open, high, low, close, volume, closeTime, assetVolume, trades, buyBaseVolume, buyAssetVolume, ignored] = last_tick;
     
-    var newData = new Data15mLast500();
+//     var newData = new Data15mLast500();
   
-    newData.data = ticks;
+//     newData.data = ticks;
   
-    newData.save((err, docs) => {
-        if(err) {
-          console.log(err);
-        } else {
-          return docs;
-        }
-    });
+//     newData.save((err, docs) => {
+//         if(err) {
+//           console.log(err);
+//         } else {
+//           return docs;
+//         }
+//     });
   
-}, {limit: 500, endTime: Date.now() });
+// }, {limit: 500, endTime: Date.now() });
 
 
 //===============================================================================================================================
 //      SERVER START
 //===============================================================================================================================
 
-
-app.listen(8081, process.env.IP, function() {
-    console.log('server start...' + process.env.IP + ":" + 8081);
+app.listen(8082, process.env.IP, function() {
+    console.log('server start...' + process.env.IP + ":" + 8082);
 });

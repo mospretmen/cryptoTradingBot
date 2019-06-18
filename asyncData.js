@@ -1,10 +1,6 @@
 var express = require('express');
 var app = express();
-var fs = require('fs');
-var _ = require('lodash');
 var math = require('mathjs');
-var moment = require('moment');
-var colors = require('colors');
 
 
 //===============================================================================================================================
