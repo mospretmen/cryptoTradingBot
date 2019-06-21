@@ -65,7 +65,6 @@ setInterval(function() {
         let last_tick = ticks[ticks.length - 1];
         let [time, open, high, low, close, volume, closeTime, assetVolume, trades, buyBaseVolume, buyAssetVolume, ignored] = last_tick;
 
-        //Create array with last 100 Candlesticks.
         var array200Period = [];
         var arrayVolume = [];
 

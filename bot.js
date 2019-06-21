@@ -47,14 +47,13 @@ const binance = require('node-binance-api')().options({
 //===============================================================================================================================
 
 let tradePair = 'IOTAETH'; // Pair you want to trade.
-let tradeQty = 10; // Qty you want to trade.
+let tradeQty = 8; // Qty you want to trade.
 let timeFrame = '15m'; // Trading Period: 1m,3m,5m,15m,30m,1h,2h,4h,6h,8h,12h,1d,3d,1w,1M
 let decimalPlaces = 0.00000001; // Number of decimal places on tradingPair
-let tradeInterval = 10000; // Interval of milliseconds bot will analyse price changes. Needs to be > 1000, due to Exchange API limits.
-let totalETHInvested = 4.1; // Total invested.
+let tradeInterval = 12000; // Interval of milliseconds bot will analyse price changes. Needs to be > 1000, due to Exchange API limits.
+let totalETHInvested = 2.43; // Total invested.
 let sinceInception = moment("20190618", "YYYYMMDD").fromNow(); // Date you started investing.   
 
-// Function to eliminate fl
 function strip(number) {
     return (parseFloat(number).toPrecision(6));
 }
@@ -65,7 +64,6 @@ setInterval(function() {
         let last_tick = ticks[ticks.length - 1];
         let [time, open, high, low, close, volume, closeTime, assetVolume, trades, buyBaseVolume, buyAssetVolume, ignored] = last_tick;
 
-        //Create array with last 100 Candlesticks.
         var array200Period = [];
         var arrayVolume = [];
 
@@ -193,14 +191,14 @@ setInterval(function() {
                     binance.sell(tradePair, tradeQty * 3, strip(+result.bidAsk.bidPrice));
                 }, 500);
                 
-            } else if (+result.balances.ETH.available < 0.02 ) {
+            } else if (+result.balances.ETH.available < 0.04 ) {
                 
                 setTimeout(function() {
                     binance.cancelOrders(tradePair, (error, response, symbol) => {
                         console.log(symbol + " cancel response:", response);
                     });
                     console.log(colors.cyan('Sell: reduce risk, overbought'));
-                    binance.sell(tradePair, +(+result.balances.IOTA.available * 0.25).toFixed(0), strip(+result.bidAsk.askPrice - +decimalPlaces));
+                    binance.sell(tradePair, +(+result.balances.IOTA.available * 0.4).toFixed(0), strip(+result.bidAsk.askPrice - +decimalPlaces));
                 }, 500);
             // STRATEGY ENDS HERE.
             
@@ -268,7 +266,7 @@ setInterval(function() {
             console.log(`ETH balance: Ξ ${numeral(result.balances.ETH.available).format('0.000')}`);
             console.log(`IOTA balance: ${numeral(result.balances.IOTA.available).format('0.0')} miota || Ξ ${(result.balances.IOTA.available*lastPrice).toFixed(2)}`);
             console.log(`Total Invested: Ξ ${totalETHInvested}`);
-            var totalETHBalance = (+result.balances.ETH.available + +result.balances.IOTA.available*lastPrice).toFixed(3);
+            var totalETHBalance = (+result.balances.ETH.available + +result.balances.IOTA.available*lastPrice + +(result.balances.BNB.available * result.prices.BNBETH)).toFixed(3);
             console.log(`Total balance: Ξ ${totalETHBalance} || $ ${(totalETHBalance * result.prices.ETHUSDT).toFixed(0)} USD`);
             console.log(`Total BNB balance: ${numeral(+result.balances.BNB.available).format('0.00')}`);
             if(((+totalETHBalance/+totalETHInvested)-1) < 0) {
@@ -282,6 +280,7 @@ setInterval(function() {
             binance.openOrders(false, (error, openOrders) => {
                 console.log("openOrders()", openOrders);
             });
+            
 
         });
 
