@@ -23,7 +23,7 @@
     "mathjs": "^5.3.1",
     "method-override": "^3.0.0",
     "moment": "^2.22.2",
-    "mongodb": "^3.1.10",
+    "mongodb": "^3.1.13",
     "mongoose": "^5.3.7",
     "node-binance-api": "^0.8.7",
     "node-cobinhood-api": "^0.2.3",
