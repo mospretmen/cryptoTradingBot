@@ -34,7 +34,7 @@
     "readme-md-generator": "^0.3.0",
     "technicalindicators": "^2.0.7",
     "uninstall": "0.0.0",
-    "validator": "^10.8.0",
+    "validator": "^13.7.0",
     "websocket": "^1.0.28"
   }
 }
